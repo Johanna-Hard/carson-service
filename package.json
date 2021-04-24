@@ -1,0 +1,19 @@
+{
+  "name": "rpt27-carson-service-calendar-widget",
+  "version": "1.0.0",
+  "description": "AirBnB calendar & price widget",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johanna-Hard/carson-service.git"
+  },
+  "author": "Carson Weinand",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Johanna-Hard/carson-service/issues"
+  },
+  "homepage": "https://github.com/Johanna-Hard/carson-service#readme"
+}
