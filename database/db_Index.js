@@ -11,7 +11,10 @@ db.authenticate()
 
 const Listing = db.define('Listing', {
   pricePerNight: Sequelize.INTEGER,
-  maxGuests: Sequelize.INTEGER,
+  numberOfGuests: Sequelize.INTEGER,
+  numberOfAdults: Sequelize.INTEGER,
+  numberOfChildren: Sequelize.INTEGER,
+  numberOfInfants: Sequelize.INTEGER,
   guestSurchage: Sequelize.INTEGER,
   minStay: Sequelize.INTEGER,
   discountRate: Sequelize.INTEGER,
