@@ -11,7 +11,7 @@ class App extends React.Component {
 
   render() {
     return (<div>
-    <h2 id="header">Calendar Widget</h2>
+      Calendar Widget!!
   </div>);
   }
 }
