@@ -1,30 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import $ from 'jquery';
-import styled from 'styled-components';
+import React from "react";
+import ReactDOM from "react-dom";
+import $ from "jquery";
+import styled from "styled-components";
+
+import PriceRating from "./components/price_rating.jsx";
+import Dates from "./components/dates.jsx";
+import CheckAvailability from "./components/check_availability.jsx";
+import { WidgetWrapper } from "./components/styles/index.styles.jsx";
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = {}
+    this.state = {};
   }
 
   render() {
-
-    const WidgetWrapper = styled.section`
-      border: 1px solid rgb(221, 221, 221);
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
-    `;
-
-    return (
-      <WidgetWrapper>
-        <div className='widget'>In the widget</div>
-      </WidgetWrapper>
-    );
+    return <WidgetWrapper>book it!</WidgetWrapper>;
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
