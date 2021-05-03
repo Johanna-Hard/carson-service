@@ -13,9 +13,9 @@ const fakeListingsData = () => {
         min: 1,
         max: 12,
       }),
-      additionalGuestSurchage: faker.datatype.number({
+      additionalGuestSurcharge: faker.datatype.number({
         min: 5,
-        max: 300,
+        max: 100,
       }),
       minStay: faker.datatype.number({
         min: 1,
@@ -53,7 +53,7 @@ const fakeReviewsData = () => {
 const fakeBookingsData = () => {
   let fakeData = [];
 
-  while (fakeData.length <= 100) {
+  while (fakeData.length <= 20) {
     fakeData.push({
       start: faker.date.future(1),
       end: faker.date.future(1),

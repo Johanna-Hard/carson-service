@@ -20,7 +20,7 @@ db.authenticate()
 const Listings = db.define("Listing", {
   pricePerNight: Sequelize.INTEGER,
   numberOfGuests: Sequelize.INTEGER,
-  additionalGuestSurchage: Sequelize.INTEGER,
+  additionalGuestSurcharge: Sequelize.INTEGER,
   minStay: Sequelize.INTEGER,
   discountRate: Sequelize.INTEGER,
   discountMinStay: Sequelize.INTEGER,
@@ -60,4 +60,4 @@ db.sync({ force: true })
     console.error("Unable to add fake data to listing table", error);
   });
 
-module.exports = db;
+module.exports = { db, Listings, Reviews, Bookings };
