@@ -1,6 +1,7 @@
 const axios = require('axios');
 const Sequelize = require('sequelize');
-const db = new Sequelize('fec', 'root', 'august30', {
+const config = require('../config.js');
+const db = new Sequelize('fec', config.user, config.password, {
   host: 'localhost',
   dialect: 'mysql'
 });
@@ -54,7 +55,7 @@ function populatePhotos() {
           count: 30
         },
         headers: {
-          Authorization: 'Client-ID LhqSjP-bnHsXW2FaOEzjznJZGUy0js4CrZ7UV04m2v4'
+          Authorization: `Client-ID ${config.unsplash_client_id_token}`
         }
       })
         .then(res => {

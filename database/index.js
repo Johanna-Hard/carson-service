@@ -1,6 +1,7 @@
 const axios = require('axios');
 const Sequelize = require('sequelize');
-const db = new Sequelize('fec', 'root', 'august30', {
+const config = require('../config.js');
+const db = new Sequelize('fec', config.user, config.password, {
   host: 'localhost',
   dialect: 'mysql'
 });
