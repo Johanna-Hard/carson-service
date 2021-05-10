@@ -3,15 +3,16 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const Sequelize = require("sequelize");
 const { db, Listings, Reviews, Bookings } = require("../database/db_Index.js");
+const axios = require("axios");
 
 const app = express();
 
-const port = 1234;
+const port = 2002;
 
 app.use(express.static(path.join(__dirname + "/../public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/calendarwidget/:listingId", (req, res) => {
+app.get("/listings/:listingId", (req, res) => {
   const listingId = req.params.listingId;
 
   let data = {};
@@ -23,18 +24,47 @@ app.get("/calendarwidget/:listingId", (req, res) => {
   })
     .then((listingData) => {
       data = listingData[0].dataValues;
-
-      return Reviews.findAll({
-        attributes: [
-          [Sequelize.fn("AVG", Sequelize.col("rating")), "ratingAvg"],
-        ],
-      });
+      res.send(data);
     })
+    .catch((error) => {
+      console.log("reviews error", error);
+    });
+
+  // let options = {
+  //   url: `localhost:2001/listings/${listingId}/bookings`,
+  // }
+
+  // axios.get(options.url)
+  //   .then((listingData) => {
+  //     // do stuff with returned listingData?
+  //     res.send(listingData);
+  //   })
+});
+
+app.get("/reviews/:listingId", (req, res) => {
+  const listingId = req.params.listingId;
+  let data = {};
+
+  Reviews.findAll({
+    where: {
+      ListingId: listingId,
+    },
+    attributes: [[Sequelize.fn("AVG", Sequelize.col("rating")), "ratingAvg"]],
+  })
     .then((rating) => {
       data["rating"] = rating[0].dataValues.ratingAvg;
-
-      return Bookings.findAll({});
+      res.send(data);
     })
+    .catch((error) => {
+      console.log("reviews error", error);
+    });
+});
+
+app.get("/bookings/:listingId", (req, res) => {
+  const listingId = req.params.listingId;
+  let data = {};
+
+  Bookings.findAll({})
     .then((bookings) => {
       let formattedBookings = [];
 
@@ -42,7 +72,8 @@ app.get("/calendarwidget/:listingId", (req, res) => {
         const values = obj.dataValues;
 
         if (values.start > values.end) {
-          let temp = null;
+          let tempStart = null;
+          let tempEnd = null;
           tempStart = values.start;
           tempEnd = values.end;
 
@@ -55,11 +86,10 @@ app.get("/calendarwidget/:listingId", (req, res) => {
 
       data["bookings"] = formattedBookings;
       data["listingId"] = listingId;
-
       res.send(data);
     })
     .catch((error) => {
-      console.log("error", error);
+      console.log("bookings error", error);
     });
 });
 

@@ -5,13 +5,17 @@ const fakeListingsData = () => {
 
   while (fakeData.length <= 100) {
     fakeData.push({
+      numberOfGuests: faker.datatype.number({
+        min: 1,
+        max: 12,
+      }),
       pricePerNight: faker.datatype.number({
         min: 60,
         max: 1200,
       }),
-      numberOfGuests: faker.datatype.number({
-        min: 1,
-        max: 12,
+      weekendPricePerNight: faker.datatype.number({
+        min: 60,
+        max: 1200,
       }),
       additionalGuestSurcharge: faker.datatype.number({
         min: 5,
@@ -40,10 +44,13 @@ const fakeReviewsData = () => {
 
   while (fakeData.length <= 100) {
     fakeData.push({
-      text: faker.lorem.paragraph(),
       rating: faker.datatype.number({
         min: 1,
         max: 5,
+      }),
+      ListingId: faker.datatype.number({
+        min: 1,
+        max: 20,
       }),
     });
   }
@@ -57,6 +64,10 @@ const fakeBookingsData = () => {
     fakeData.push({
       start: faker.date.future(1),
       end: faker.date.future(1),
+      ListingId: faker.datatype.number({
+        min: 1,
+        max: 10,
+      }),
     });
   }
   return fakeData;

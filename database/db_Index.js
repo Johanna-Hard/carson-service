@@ -18,8 +18,9 @@ db.authenticate()
   });
 
 const Listings = db.define("Listing", {
-  pricePerNight: Sequelize.INTEGER,
   numberOfGuests: Sequelize.INTEGER,
+  pricePerNight: Sequelize.INTEGER,
+  weekendPricePerNight: Sequelize.INTEGER,
   additionalGuestSurcharge: Sequelize.INTEGER,
   minStay: Sequelize.INTEGER,
   discountRate: Sequelize.INTEGER,
@@ -27,7 +28,6 @@ const Listings = db.define("Listing", {
 });
 
 const Reviews = db.define("Reviews", {
-  text: Sequelize.TEXT,
   rating: Sequelize.INTEGER,
 });
 
@@ -36,10 +36,10 @@ const Bookings = db.define("Bookings", {
   end: Sequelize.DATEONLY,
 });
 
-// Listings.hasMany(Reviews);
-// Listings.hasMany(Bookings);
-// Reviews.belongsTo(Listing);
-// Bookings.belongsTo(Listing);
+Listings.hasMany(Reviews);
+Listings.hasMany(Bookings);
+Reviews.belongsTo(Listings);
+Bookings.belongsTo(Listings);
 
 db.sync({ force: true })
   .then(() => {

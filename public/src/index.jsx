@@ -14,8 +14,9 @@ class App extends React.Component {
 
     this.state = {
       listingId: 5,
-      pricePerNight: null,
       numberOfGuests: null,
+      pricePerNight: null,
+      weekendPricePerNight: null,
       additionalGuestSurcharge: null,
       minStay: null,
       discountRate: null,
@@ -28,24 +29,52 @@ class App extends React.Component {
   componentDidMount() {
     $.ajax({
       method: "GET",
-      url: `/calendarwidget/${this.state.listingId}`,
+      url: `/listings/${this.state.listingId}`,
       success: (data) => {
-        console.log("get request success: ", data);
+        console.log("get listings request success: ", data);
         this.setState({
-          listingId: data.listingId,
-          pricePerNight: data.pricePerNight,
           numberOfGuests: data.numberOfGuests,
+          pricePerNight: data.pricePerNight,
+          weekendPricePerNight: data.weekendPricePerNight,
           additionalGuestSurcharge: data.additionalGuestSurcharge,
           minStay: data.minStay,
           discountRate: data.discountRate,
           discountMinStay: data.discountMinStay,
-          rating: data.rating,
-          bookings: data.bookings,
         });
-        console.log("updated state:", this.state);
+        console.log("updated listings state:", this.state);
       },
       error: (err) => {
-        console.log("GET req error", err);
+        console.log("GET listings req error", err);
+      },
+    });
+
+    $.ajax({
+      method: "GET",
+      url: `/bookings/${this.state.listingId}`,
+      success: (data) => {
+        console.log("get bookings request success: ", data);
+        this.setState({
+          bookings: data.bookings,
+        });
+        console.log("updated bookings state:", this.state);
+      },
+      error: (err) => {
+        console.log("GET bookings req error", err);
+      },
+    });
+
+    $.ajax({
+      method: "GET",
+      url: `/reviews/${this.state.listingId}`,
+      success: (data) => {
+        console.log("get rating request success: ", data);
+        this.setState({
+          rating: data.rating,
+        });
+        console.log("updated rating state:", this.state);
+      },
+      error: (err) => {
+        console.log("GET rating req error", err);
       },
     });
   }
