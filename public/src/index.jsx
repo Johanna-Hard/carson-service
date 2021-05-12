@@ -50,21 +50,6 @@ class App extends React.Component {
 
     $.ajax({
       method: "GET",
-      url: `/bookings/${this.state.listingId}`,
-      success: (data) => {
-        console.log("get bookings request success: ", data);
-        this.setState({
-          bookings: data.bookings,
-        });
-        console.log("updated bookings state:", this.state);
-      },
-      error: (err) => {
-        console.log("GET bookings req error", err);
-      },
-    });
-
-    $.ajax({
-      method: "GET",
       url: `/reviews/${this.state.listingId}`,
       success: (data) => {
         console.log("get rating request success: ", data);
@@ -75,6 +60,21 @@ class App extends React.Component {
       },
       error: (err) => {
         console.log("GET rating req error", err);
+      },
+    });
+
+    $.ajax({
+      method: "GET",
+      url: `/bookings/${this.state.listingId}`,
+      success: (data) => {
+        console.log("get bookings request success: ", data);
+        this.setState({
+          bookings: data.bookings,
+        });
+        console.log("updated bookings state:", this.state);
+      },
+      error: (err) => {
+        console.log("GET bookings req error", err);
       },
     });
   }

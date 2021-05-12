@@ -4,11 +4,13 @@ const path = require("path");
 const Sequelize = require("sequelize");
 const { db, Listings, Reviews, Bookings } = require("../database/db_Index.js");
 const axios = require("axios");
+const cors = require("cors");
 
 const app = express();
 
 const port = 2002;
 
+app.use(cors());
 app.use(express.static(path.join(__dirname + "/../public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -93,6 +95,10 @@ app.get("/bookings/:listingId", (req, res) => {
     });
 });
 
-app.listen(port, () => {
-  console.log(`Server is listening at port ${port}`);
-});
+if (process.env.NODE_ENV !== "test") {
+  app.listen(port, () => {
+    console.log(`Server is listening at port ${port}`);
+  });
+}
+
+module.exports = app;
