@@ -36,10 +36,10 @@ const Bookings = db.define("Bookings", {
   end: Sequelize.DATEONLY,
 });
 
-Listings.hasMany(Reviews);
-Listings.hasMany(Bookings);
-Reviews.belongsTo(Listings);
-Bookings.belongsTo(Listings);
+// Listings.hasMany(Reviews);
+// Listings.hasMany(Bookings);
+// Reviews.belongsTo(Listings);
+// Bookings.belongsTo(Listings);
 
 db.sync({ force: true })
   .then(() => {

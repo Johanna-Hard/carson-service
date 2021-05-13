@@ -48,9 +48,9 @@ app.get("/reviews/:listingId", (req, res) => {
   let data = {};
 
   Reviews.findAll({
-    where: {
-      ListingId: listingId,
-    },
+    // where: {
+    //   ListingId: listingId,
+    // },
     attributes: [[Sequelize.fn("AVG", Sequelize.col("rating")), "ratingAvg"]],
   })
     .then((rating) => {

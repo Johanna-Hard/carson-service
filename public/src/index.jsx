@@ -3,10 +3,7 @@ import ReactDOM from "react-dom";
 import $ from "jquery";
 import styled from "styled-components";
 
-import PriceRating from "./components/price_rating.jsx";
-import Dates from "./components/dates.jsx";
-import CheckAvailability from "./components/check_availability.jsx";
-import WidgetWrapper from "./components/styles/index.styles.jsx";
+import { WidgetContainer, StyledBookIt } from "./components/styles/styles.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,6 +19,7 @@ class App extends React.Component {
       discountRate: null,
       discountMinStay: null,
       rating: null,
+      numberOfReviews: null,
       bookings: [],
     };
   }
@@ -53,8 +51,10 @@ class App extends React.Component {
       url: `/reviews/${this.state.listingId}`,
       success: (data) => {
         console.log("get rating request success: ", data);
+        const randomNum = Math.floor(Math.random() * 100);
         this.setState({
           rating: data.rating,
+          numberOfReviews: randomNum,
         });
         console.log("updated rating state:", this.state);
       },
@@ -80,7 +80,11 @@ class App extends React.Component {
   }
 
   render() {
-    return <WidgetWrapper>book it!</WidgetWrapper>;
+    return (
+      <WidgetContainer>
+        <StyledBookIt state={this.state}></StyledBookIt>
+      </WidgetContainer>
+    );
   }
 }
 
