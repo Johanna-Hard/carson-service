@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import $ from "jquery";
 import styled from "styled-components";
 
-import { WidgetContainer, StyledBookIt } from "./components/styles/styles.jsx";
+import * as s from "./components/styles/styles.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -85,9 +85,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <WidgetContainer>
-        <StyledBookIt state={this.state}></StyledBookIt>
-      </WidgetContainer>
+      <s.WidgetContainer>
+        <s.StyledBookIt state={this.state}></s.StyledBookIt>
+      </s.WidgetContainer>
     );
   }
 }

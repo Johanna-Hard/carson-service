@@ -1,26 +1,19 @@
 import React from "react";
-import {
-  StyledBookItLevel2,
-  StyledPriceRatingContainer,
-  StyledPriceContainer,
-  StyledRatingContainer,
-  StyledCalendarContainer,
-  StyledCheckAvailability,
-} from "./styles/styles.jsx";
+import * as s from "./styles/styles.jsx";
 
 const BookIt = ({ className, state }) => {
   return (
     <div className={className}>
-      <StyledBookItLevel2>
-        <StyledPriceRatingContainer>
-          <StyledPriceContainer state={state}></StyledPriceContainer>
-          <StyledRatingContainer state={state}></StyledRatingContainer>
-        </StyledPriceRatingContainer>
+      <s.BookItLevel2>
+        <s.PriceRatingContainer>
+          <s.PriceContainer state={state}></s.PriceContainer>
+          <s.RatingContainer state={state}></s.RatingContainer>
+        </s.PriceRatingContainer>
 
-        <StyledCalendarContainer>cal to go here</StyledCalendarContainer>
+        <s.CalendarContainer>cal to go here</s.CalendarContainer>
 
-        <StyledCheckAvailability></StyledCheckAvailability>
-      </StyledBookItLevel2>
+        <s.CheckAvailabilityContainer></s.CheckAvailabilityContainer>
+      </s.BookItLevel2>
     </div>
   );
 };

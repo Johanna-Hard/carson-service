@@ -20,14 +20,14 @@ export const StyledBookIt = styled(BookIt)`
   line-height: 20px !important;
 `;
 
-export const StyledBookItLevel2 = styled.div`
+export const BookItLevel2 = styled.div`
   -webkit-box-direction: normal !important;
   -webkit-box-orient: vertical !important;
   display: flex !important;
   flex-direction: column !important;
 `;
 
-export const StyledPriceRatingContainer = styled.div`
+export const PriceRatingContainer = styled.div`
   -webkit-box-align: baseline !important;
   -webkit-box-pack: justify !important;
   -webkit-box-direction: normal !important;
@@ -39,7 +39,9 @@ export const StyledPriceRatingContainer = styled.div`
   margin-bottom: 24px !important;
 `;
 
-export const StyledPriceContainer = styled(Price)`
+/// PRICE ///
+
+export const PriceContainer = styled(Price)`
   -webkit-box-pack: center !important;
   -webkit-box-direction: normal !important;
   -webkit-box-orient: vertical !important;
@@ -50,25 +52,25 @@ export const StyledPriceContainer = styled(Price)`
   justify-content: center !important;
 `;
 
-export const StyledPriceContainer2 = styled.div`
+export const PriceContainer2 = styled.div`
   line-height: normal !important;
   width: 100% !important;
 `;
 
-export const StyledPriceContainer3 = styled.div`
+export const PriceContainer3 = styled.div`
   font-size: 22px !important;
   line-height: 26px !important;
 `;
 
-export const StyledPriceSpanContainer = styled.span`
+export const PriceSpanContainer = styled.span`
   box-sizing: border-box;
 `;
 
-export const StyledPriceSpan = styled.span`
+export const PriceSpan = styled.span`
   font-weight: 600 !important;
 `;
 
-export const StyledNightSpan = styled.span`
+export const NightSpan = styled.span`
   color: rgb(34, 34, 34) !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
     "Helvetica Neue", sans-serif !important;
@@ -79,13 +81,59 @@ export const StyledNightSpan = styled.span`
   padding-left: 4px !important;
 `;
 
-export const StyledRatingContainer = styled(Rating)`
+/// RATING ///
+
+export const RatingContainer = styled(Rating)`
   margin-top: 8px !important;
 `;
 
-export const StyledCalendarContainer = styled.div``;
+export const RatingContainer2 = styled.div`
+  margin-top: 8px !important;
+`;
 
-export const StyledCheckAvailability = styled(CheckAvailability)`
+export const RatingSpanContainer = styled.div`
+  -webkit-box-align: baseline !important;
+  align-items: baseline !important;
+  display: flex !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+`;
+
+export const StarIconSpan = styled.span`
+  font-size: 12px;
+  text-align: center !important;
+  color: #ff385c !important;
+`;
+
+export const StarIconSVG = styled.svg`
+  display: block;
+  height: 12px;
+  width: 12px;
+  fill: currentcolor;
+`;
+
+export const RatingSpan = styled.span`
+  color: rgb(34, 34, 34) !important;
+  padding-left: 4px !important;
+  font-weight: 600 !important;
+`;
+
+export const ReviewsSpan = styled.span`
+  color: rgb(113, 113, 113) !important;
+  padding-left: 4px !important;
+  font-weight: 600 !important;
+  text-decoration: underline !important;
+`;
+
+/// CALENDAR ///
+
+export const CalendarContainer = styled.div`
+  font-family: Helvetica;
+`;
+
+/// CHECK AVAILABILITY ///
+
+export const CheckAvailabilityContainer = styled(CheckAvailability)`
   cursor: pointer !important;
   display: inline-block !important;
   margin: 0px !important;
