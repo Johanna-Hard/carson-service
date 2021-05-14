@@ -11,11 +11,11 @@ const fakeListingsData = () => {
       }),
       pricePerNight: faker.datatype.number({
         min: 60,
-        max: 1200,
+        max: 999,
       }),
       weekendPricePerNight: faker.datatype.number({
         min: 60,
-        max: 1200,
+        max: 999,
       }),
       additionalGuestSurcharge: faker.datatype.number({
         min: 5,

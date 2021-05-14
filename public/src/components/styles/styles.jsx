@@ -11,17 +11,79 @@ export const WidgetContainer = styled.div`
   margin-top: 48px;
 `;
 
-export const StyledBookIt = styled(BookIt)``;
-
-export const StyledPrice = styled(Price)`
-  font-family: Helvetica;
-  font-size: 50px;
+export const StyledBookIt = styled(BookIt)`
+  color: rgb(34, 34, 34) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
 `;
 
-export const StyledRating = styled(Rating)`
-  font-family: Helvetica;
-  font-size: 50px;
+export const StyledBookItLevel2 = styled.div`
+  -webkit-box-direction: normal !important;
+  -webkit-box-orient: vertical !important;
+  display: flex !important;
+  flex-direction: column !important;
 `;
+
+export const StyledPriceRatingContainer = styled.div`
+  -webkit-box-align: baseline !important;
+  -webkit-box-pack: justify !important;
+  -webkit-box-direction: normal !important;
+  -webkit-box-orient: horizontal !important;
+  display: flex !important;
+  flex-flow: row wrap !important;
+  justify-content: space-between !important;
+  align-items: baseline !important;
+  margin-bottom: 24px !important;
+`;
+
+export const StyledPriceContainer = styled(Price)`
+  -webkit-box-pack: center !important;
+  -webkit-box-direction: normal !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-box-align: start !important;
+  align-items: flex-start !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+`;
+
+export const StyledPriceContainer2 = styled.div`
+  line-height: normal !important;
+  width: 100% !important;
+`;
+
+export const StyledPriceContainer3 = styled.div`
+  font-size: 22px !important;
+  line-height: 26px !important;
+`;
+
+export const StyledPriceSpanContainer = styled.span`
+  box-sizing: border-box;
+`;
+
+export const StyledPriceSpan = styled.span`
+  font-weight: 600 !important;
+`;
+
+export const StyledNightSpan = styled.span`
+  color: rgb(34, 34, 34) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  white-space: nowrap !important;
+  padding-left: 4px !important;
+`;
+
+export const StyledRatingContainer = styled(Rating)`
+  margin-top: 8px !important;
+`;
+
+export const StyledCalendarContainer = styled.div``;
 
 export const StyledCheckAvailability = styled(CheckAvailability)`
   cursor: pointer !important;

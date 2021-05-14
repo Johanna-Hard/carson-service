@@ -24,59 +24,63 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    $.ajax({
+  async componentDidMount() {
+    let stateData = {
+      listingId: 5,
+      numberOfGuests: null,
+      pricePerNight: null,
+      weekendPricePerNight: null,
+      additionalGuestSurcharge: null,
+      minStay: null,
+      discountRate: null,
+      discountMinStay: null,
+      rating: null,
+      numberOfReviews: null,
+      bookings: [],
+    };
+
+    await $.ajax({
       method: "GET",
       url: `/listings/${this.state.listingId}`,
       success: (data) => {
-        console.log("get listings request success: ", data);
-        this.setState({
-          numberOfGuests: data.numberOfGuests,
-          pricePerNight: data.pricePerNight,
-          weekendPricePerNight: data.weekendPricePerNight,
-          additionalGuestSurcharge: data.additionalGuestSurcharge,
-          minStay: data.minStay,
-          discountRate: data.discountRate,
-          discountMinStay: data.discountMinStay,
-        });
-        console.log("updated listings state:", this.state);
+        stateData["numberOfGuests"] = data.numberOfGuests;
+        stateData["pricePerNight"] = data.pricePerNight;
+        stateData["weekendPricePerNight"] = data.weekendPricePerNight;
+        stateData["additionalGuestSurcharge"] = data.additionalGuestSurcharge;
+        stateData["minStay"] = data.minStay;
+        stateData["discountRate"] = data.discountRate;
+        stateData["discountMinStay"] = data.discountMinStay;
       },
       error: (err) => {
         console.log("GET listings req error", err);
       },
     });
 
-    $.ajax({
+    await $.ajax({
       method: "GET",
       url: `/reviews/${this.state.listingId}`,
       success: (data) => {
-        console.log("get rating request success: ", data);
         const randomNum = Math.floor(Math.random() * 100);
-        this.setState({
-          rating: data.rating,
-          numberOfReviews: randomNum,
-        });
-        console.log("updated rating state:", this.state);
+        stateData["rating"] = Number(data.rating).toFixed(2);
+        stateData["numberOfReviews"] = randomNum;
       },
       error: (err) => {
         console.log("GET rating req error", err);
       },
     });
 
-    $.ajax({
+    await $.ajax({
       method: "GET",
       url: `/bookings/${this.state.listingId}`,
       success: (data) => {
-        console.log("get bookings request success: ", data);
-        this.setState({
-          bookings: data.bookings,
-        });
-        console.log("updated bookings state:", this.state);
+        stateData["bookings"] = data.bookings;
       },
       error: (err) => {
         console.log("GET bookings req error", err);
       },
     });
+
+    this.setState(stateData);
   }
 
   render() {
