@@ -15,7 +15,7 @@ module.exports = {
     ]
   },
    output: {
-    filename: 'bundle.js',
+    filename: 'photos.js',
     path: __dirname + '/client/dist'
   }
 };

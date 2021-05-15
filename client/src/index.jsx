@@ -1,8 +1,55 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const axios = require('axios');
+import styled from 'styled-components';
+import PhotoPreview from './components/PhotoPreview.jsx'
 
-class App extends React.Component {
+const StyledPhotosHomeContainerFlex = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  width: 1280px;
+  height: 640px;
+  border-left: 76px;
+  border-right: 76px;
+  padding-top: 24px;
+  background-color: red;
+`
+
+const StyledPhotosHomeHalfWidthBlock = styled.div`
+  display: block;
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+  background-color: grey;
+`
+
+const StyledPhotosHomeQuarterFlex = styled.div`
+  display: block;
+  box-sizing: border-box;
+  width: 25%;
+  height: 100%;
+  padding-left:12px;
+  background-color: grey;
+`
+
+const StyledPhotosHomeHalfHeightBlockTop = styled.div`
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50%;
+  background-color: blue;
+`
+
+const StyledPhotosHomeHalfHeightBlockBottom = styled.div`
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50%;
+  background-color: green;
+  padding-top:12px;
+`
+
+class Photos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,12 +81,33 @@ class App extends React.Component {
   render() {
     console.log('state.photos: ', this.state.photos);
     return (
-      <div>
-        <h2>App</h2>
-        <div className='photos-item-page'></div>
-      </div>
+      <StyledPhotosHomeContainerFlex>
+        <StyledPhotosHomeHalfWidthBlock>
+          <PhotoPreview photoType={'wide'} url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
+        </StyledPhotosHomeHalfWidthBlock>
+
+        <StyledPhotosHomeQuarterFlex>
+          <StyledPhotosHomeHalfHeightBlockTop>
+
+          </StyledPhotosHomeHalfHeightBlockTop>
+
+          <StyledPhotosHomeHalfHeightBlockBottom>
+
+          </StyledPhotosHomeHalfHeightBlockBottom>
+        </StyledPhotosHomeQuarterFlex>
+
+        <StyledPhotosHomeQuarterFlex>
+          <StyledPhotosHomeHalfHeightBlockTop>
+
+          </StyledPhotosHomeHalfHeightBlockTop>
+
+          <StyledPhotosHomeHalfHeightBlockBottom>
+
+          </StyledPhotosHomeHalfHeightBlockBottom>
+        </StyledPhotosHomeQuarterFlex>
+      </StyledPhotosHomeContainerFlex>
     )
   }
 }
 
-ReactDOM.render(<App listingId={13}/>, document.getElementById('app'));
+ReactDOM.render(<Photos listingId={13}/>, document.getElementById('Photos'));
