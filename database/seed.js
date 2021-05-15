@@ -6,14 +6,6 @@ const db = new Sequelize('fec', config.user, config.password, {
   dialect: 'mysql'
 });
 
-const Listing = db.define('Listing', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  }
-});
-
 const Photo = db.define('Photo', {
   id: {
     type: Sequelize.INTEGER,
@@ -26,24 +18,6 @@ const Photo = db.define('Photo', {
   height: Sequelize.INTEGER,
   listing_id: Sequelize.INTEGER
 });
-
-function generateListings() {
-  Listing.sync()
-    .then(function() {
-      // generate 100 listings
-      let listings = [];
-      for (let id = 0; id < 100; id++) {
-        listings.push({});
-      }
-      return Listing.bulkCreate(listings);
-    })
-    .then(result => {
-      console.log('result', result);
-    })
-    .catch(err => {
-      console.log('error', err);
-    });
-}
 
 function populatePhotos() {
   Photo.sync()
@@ -84,13 +58,67 @@ function populatePhotos() {
     });
 }
 
-generateListings();
+// photos
 let count = 0;
-let seed = setInterval(function() {
+let seedPhotos = setInterval(function() {
   populatePhotos();
   count++;
   if (count > 40) {
-    clearInterval(seed);
+    clearInterval(seedPhotos);
   }
 }, 10000);
 
+// hosts
+const Host = db.define('Host', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  hostImage: Sequelize.STRING,
+  hostName: Sequelize.STRING,
+  hostRating: Sequelize.DECIMAL(2,1),
+  superHost: Sequelize.BOOLEAN,
+  hostListingCount: Sequelize.INTEGER
+});
+
+function populateHosts() {
+  Host.sync()
+    .then(function() {
+      // generate 1-15 photos per listing
+      axios.get('https://api.unsplash.com/photos/random', {
+        params: {
+          query: 'Headshot',
+          count: 20
+        },
+        headers: {
+          Authorization: `Client-ID ${config.unsplash_client_id_token}`
+        }
+      })
+        .then(res => {
+          console.log('data', res.data);
+          let hosts = [];
+          for (var i = 0; i < res.data.length; i++) {
+            hosts.push({
+              hostImage: res.data[i].urls.regular,
+              hostName: res.data[i].user.name,
+              hostRating: Number((Math.random() * 5).toFixed(1)),
+              superHost: Math.random() > 0.80 ? 1 : 0,
+              hostListingCount: Math.floor(Math.random() * 10 + 1)
+            });
+          }
+          return Host.bulkCreate(hosts);
+        })
+        .then(result => console.log('result', result))
+        .catch(err => console.log('err', err));
+    });
+}
+
+let count = 0;
+let seedHosts = setInterval(function() {
+  populateHosts();
+  count++;
+  if (count > 4) {
+    clearInterval(seedHosts);
+  }
+}, 10000);
