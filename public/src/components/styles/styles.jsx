@@ -2,6 +2,7 @@ import styled from "styled-components";
 import BookIt from "../bookit.jsx";
 import { Price, Rating } from "../priceRating.jsx";
 import { CheckAvailability } from "../CheckAvailability.jsx";
+import { Calendar } from "../Calendar.jsx";
 
 export const WidgetContainer = styled.div`
   border: 1px solid rgb(221, 221, 221);
@@ -127,8 +128,226 @@ export const ReviewsSpan = styled.span`
 
 /// CALENDAR ///
 
-export const CalendarContainer = styled.div`
-  font-family: Helvetica;
+export const CalendarContainer = styled(Calendar)`
+  margin-bottom: 16px !important;
+  box-sizing: border-box;
+`;
+
+export const CalendarContainer2 = styled.div`
+  position: relative !important;
+`;
+
+export const CalendarContainer3 = styled.div`
+  position: relative !important;
+  background-color: #ffffff !important;
+`;
+
+export const CheckInCheckOutContainer = styled.div`
+  display: flex !important;
+`;
+
+export const CheckInCheckOutContainer2 = styled.div`
+  width: 100% !important;
+`;
+
+export const CheckInCheckOutContainer3 = styled.div`
+  position: relative !important;
+`;
+
+export const inset1 = styled.div`
+  position: absolute !important;
+  pointer-events: none !important;
+`;
+
+export const CheckInCheckOutFunctionality = styled.div`
+  position: relative !important;
+  display: flex !important;
+  width: 100% !important;
+  margin: 0px !important;
+  border: none transparent !important;
+  color: rgb(34, 34, 34) !important;
+  background-color: transparent !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  font-weight: 400 !important;
+  outline: 0px !important;
+`;
+
+export const inset2 = styled.div`
+  position: absolute !important;
+  pointer-events: none !important;
+  border-style: solid !important;
+`;
+
+export const CheckInContainer = styled.div`
+  position: relative !important;
+  flex: 1 1 0% !important;
+  padding: 0px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+`;
+
+export const CheckInCheckOut = styled.div`
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  right: 12px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  pointer-events: none !important;
+  font-size: 10px !important;
+  line-height: 12px !important;
+  color: rgb(34, 34, 34) !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+`;
+
+export const AddDate = styled.div`
+  height: 20px !important;
+  width: 100% !important;
+  border: none !important;
+  outline: none !important;
+  margin: 0px !important;
+  padding: 26px 12px 10px !important;
+  background-color: transparent !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+  font-weight: inherit !important;
+  line-height: 18px !important;
+  appearance: none !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  color: rgb(113, 113, 113) !important;
+`;
+
+export const CheckOutContainer = styled.div`
+  position: relative !important;
+  flex: 1 1 0% !important;
+  padding: 0px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  border-left: 1px solid rgb(176, 176, 176) !important;
+`;
+
+export const GuestsContainer = styled.div`
+  display: flex !important;
+`;
+
+export const GuestsContainer2 = styled.div`
+  position: relative !important;
+  width: 100% !important;
+`;
+
+export const GuestsContainer3 = styled.div`
+  position: relative !important;
+`;
+
+export const inset3 = styled.div`
+  position: absolute !important;
+  pointer-events: none !important;
+`;
+
+export const GuestsFunctionality = styled.div`
+  position: relative !important;
+  display: flex !important;
+  width: 100% !important;
+  margin: 0px !important;
+  border: none transparent !important;
+  color: rgb(34, 34, 34) !important;
+  background-color: transparent !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  font-weight: 400 !important;
+  outline: 0px !important;
+`;
+
+export const Guests = styled.div`
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  right: 12px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  pointer-events: none !important;
+  font-size: 10px !important;
+  line-height: 12px !important;
+  color: rgb(34, 34, 34) !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+`;
+
+export const NumberOfGuestsContainer = styled.div`
+  height: 20px !important;
+  width: 100% !important;
+  border: none !important;
+  outline: none !important;
+  margin: 0px !important;
+  padding: 26px 36px 10px 12px !important;
+  background-color: transparent !important;
+  color: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  appearance: none !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+`;
+
+export const NumberOfGuestsContainer2 = styled.div`
+  font-size: 14px !important;
+  line-height: 18px !important;
+`;
+
+export const NumberOfGuests = styled.span``;
+
+export const inset4 = styled.div`
+  position: absolute !important;
+  pointer-events: none !important;
+  border-style: solid !important;
+`;
+
+export const DropDownIconContainer = styled.div`
+  -webkit-box-pack: center !important;
+  -webkit-box-align: center !important;
+  position: absolute !important;
+  right: 0px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  max-width: 50% !important;
+  min-width: 36px !important;
+  padding-right: 12px !important;
+  pointer-events: none !important;
+  color: rgb(34, 34, 34) !important;
+`;
+
+export const DropDownIconSVG = styled.svg`
+  height: 16px;
+  width: 16px;
+  display: block;
+  fill: currentcolor;
 `;
 
 /// CHECK AVAILABILITY ///

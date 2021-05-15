@@ -10,7 +10,7 @@ const BookIt = ({ className, state }) => {
           <s.RatingContainer state={state}></s.RatingContainer>
         </s.PriceRatingContainer>
 
-        <s.CalendarContainer>cal to go here</s.CalendarContainer>
+        <s.CalendarContainer state={state}></s.CalendarContainer>
 
         <s.CheckAvailabilityContainer></s.CheckAvailabilityContainer>
       </s.BookItLevel2>
