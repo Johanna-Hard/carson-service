@@ -6,14 +6,6 @@ const db = new Sequelize('fec', config.user, config.password, {
   dialect: 'mysql'
 });
 
-const Listing = db.define('Listing', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  }
-});
-
 const Photo = db.define('Photo', {
   id: {
     type: Sequelize.INTEGER,
@@ -41,7 +33,8 @@ const findForListingId = function(listingId, callback) {
         ],
         where: {
           listing_id: listingId
-        }
+        },
+        limit: 5
       })
     })
     .then(function(result) {

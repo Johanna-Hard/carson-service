@@ -2,9 +2,9 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const axios = require('axios');
 import styled from 'styled-components';
-import PhotoPreview from './components/PhotoPreview.jsx'
+import PhotoHomeElement from './components/PhotoHomeElement.jsx'
 
-const StyledPhotosHomeContainerFlex = styled.div`
+const StyledPhotoHomeContainerFlex = styled.div`
   display: flex;
   flex-flow: row wrap;
   width: 1280px;
@@ -15,7 +15,23 @@ const StyledPhotosHomeContainerFlex = styled.div`
   background-color: red;
 `
 
-const StyledPhotosHomeHalfWidthBlock = styled.div`
+const StyledPhotoHomeFullWidthBlock = styled.div`
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+`
+
+const StyledPhotoHomeTwoThirdWidthBlock = styled.div`
+  display: block;
+  box-sizing: border-box;
+  width: 67%;
+  height: 100%;
+  background-color: grey;
+`
+
+const StyledPhotoHomeHalfWidthBlock = styled.div`
   display: block;
   box-sizing: border-box;
   width: 50%;
@@ -23,7 +39,26 @@ const StyledPhotosHomeHalfWidthBlock = styled.div`
   background-color: grey;
 `
 
-const StyledPhotosHomeQuarterFlex = styled.div`
+
+const StyledPhotoHomeHalfFlex = styled.div`
+  display: block;
+  box-sizing: border-box;
+  width: 50%;
+  height: 100%;
+  padding-left:12px;
+  background-color: grey;
+`
+
+const StyledPhotoHomeOneThirdFlex = styled.div`
+  display: block;
+  box-sizing: border-box;
+  width: 33%;
+  height: 100%;
+  padding-left:12px;
+  background-color: grey;
+`
+
+const StyledPhotoHomeQuarterFlex = styled.div`
   display: block;
   box-sizing: border-box;
   width: 25%;
@@ -32,7 +67,7 @@ const StyledPhotosHomeQuarterFlex = styled.div`
   background-color: grey;
 `
 
-const StyledPhotosHomeHalfHeightBlockTop = styled.div`
+const StyledPhotoHomeHalfHeightBlockTop = styled.div`
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -40,7 +75,7 @@ const StyledPhotosHomeHalfHeightBlockTop = styled.div`
   background-color: blue;
 `
 
-const StyledPhotosHomeHalfHeightBlockBottom = styled.div`
+const StyledPhotoHomeHalfHeightBlockBottom = styled.div`
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -80,38 +115,86 @@ class Photos extends React.Component {
 
   render() {
     console.log('state.photos: ', this.state.photos);
+
+    let photoHome;
+
+    if (this.state.photos) {
+      if (this.state.photos.length >= 5) {
+        // 5 photos
+        photoHome = (
+          <StyledPhotoHomeContainerFlex>
+
+          <StyledPhotoHomeHalfWidthBlock>
+            <PhotoHomeElement url={this.state.photos[0].url} />
+          </StyledPhotoHomeHalfWidthBlock>
+
+          <StyledPhotoHomeQuarterFlex>
+            <StyledPhotoHomeHalfHeightBlockTop>
+              <PhotoHomeElement url={this.state.photos[1].url} />
+            </StyledPhotoHomeHalfHeightBlockTop>
+
+            <StyledPhotoHomeHalfHeightBlockBottom>
+              <PhotoHomeElement url={this.state.photos[2].url} />
+            </StyledPhotoHomeHalfHeightBlockBottom>
+
+          </StyledPhotoHomeQuarterFlex>
+
+          <StyledPhotoHomeQuarterFlex>
+
+            <StyledPhotoHomeHalfHeightBlockTop>
+              <PhotoHomeElement url={this.state.photos[3].url} />
+            </StyledPhotoHomeHalfHeightBlockTop>
+
+            <StyledPhotoHomeHalfHeightBlockBottom>
+            <PhotoHomeElement url={this.state.photos[4].url} />
+            </StyledPhotoHomeHalfHeightBlockBottom>
+
+          </StyledPhotoHomeQuarterFlex>
+        </StyledPhotoHomeContainerFlex>
+        )
+      } else if (this.state.photos.length >= 3) {
+        // 3 photos
+        photoHome = (
+        <StyledPhotoHomeContainerFlex>
+
+          <StyledPhotoHomeTwoThirdWidthBlock>
+            <PhotoHomeElement url={this.state.photos[0].url} />
+          </StyledPhotoHomeTwoThirdWidthBlock>
+
+          <StyledPhotoHomeOneThirdFlex>
+            <StyledPhotoHomeHalfHeightBlockTop>
+              <PhotoHomeElement url={this.state.photos[1].url} />
+            </StyledPhotoHomeHalfHeightBlockTop>
+
+            <StyledPhotoHomeHalfHeightBlockBottom>
+              <PhotoHomeElement url={this.state.photos[2].url} />
+            </StyledPhotoHomeHalfHeightBlockBottom>
+
+          </StyledPhotoHomeOneThirdFlex>
+
+      </StyledPhotoHomeContainerFlex>);
+      } else if (this.state.photos.length >= 1) {
+        // 1 photo
+        photoHome = (
+        <StyledPhotoHomeContainerFlex>
+          <StyledPhotoHomeFullWidthBlock>
+            <PhotoHomeElement url={this.state.photos[0].url}></PhotoHomeElement>
+          </StyledPhotoHomeFullWidthBlock>
+        </StyledPhotoHomeContainerFlex>);
+      }
+    }
+
     return (
-      <StyledPhotosHomeContainerFlex>
-
-        <StyledPhotosHomeHalfWidthBlock>
-          <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
-        </StyledPhotosHomeHalfWidthBlock>
-
-        <StyledPhotosHomeQuarterFlex>
-          <StyledPhotosHomeHalfHeightBlockTop>
-            <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
-          </StyledPhotosHomeHalfHeightBlockTop>
-
-          <StyledPhotosHomeHalfHeightBlockBottom>
-            <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
-          </StyledPhotosHomeHalfHeightBlockBottom>
-
-        </StyledPhotosHomeQuarterFlex>
-
-        <StyledPhotosHomeQuarterFlex>
-
-          <StyledPhotosHomeHalfHeightBlockTop>
-            <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
-          </StyledPhotosHomeHalfHeightBlockTop>
-
-          <StyledPhotosHomeHalfHeightBlockBottom>
-          <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
-          </StyledPhotosHomeHalfHeightBlockBottom>
-
-        </StyledPhotosHomeQuarterFlex>
-      </StyledPhotosHomeContainerFlex>
+      <div>
+        {photoHome}
+      </div>
     )
   }
 }
 
-ReactDOM.render(<Photos listingId={13}/>, document.getElementById('Photos'));
+ReactDOM.render(<Photos listingId={18}/>, document.getElementById('Photos'));
+
+// 3 templates: 5, 3, 1 photo(s)
+// 5 photo widths: 50% 25% 25%
+// 3 photo widths: up to 67% 33%
+// 1 photo widths: 100%

@@ -1,7 +1,7 @@
 const React = require('react');
 import styled from 'styled-components';
 
-const StyledPhotoPreview = styled.img`
+const StyledPhotoHomeElement = styled.img`
   object-fit: cover;
   vertical-align: bottom;
   width: 100%;
@@ -10,17 +10,17 @@ const StyledPhotoPreview = styled.img`
 
 // need to render
 
-class PhotoPreview extends React.Component {
+class PhotoHomeElement extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return(
-      <StyledPhotoPreview src={this.props.url}></StyledPhotoPreview>
+      <StyledPhotoHomeElement src={this.props.url}></StyledPhotoHomeElement>
     )
   }
 
 }
 
-export default PhotoPreview;
+export default PhotoHomeElement;
