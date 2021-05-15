@@ -82,28 +82,32 @@ class Photos extends React.Component {
     console.log('state.photos: ', this.state.photos);
     return (
       <StyledPhotosHomeContainerFlex>
+
         <StyledPhotosHomeHalfWidthBlock>
-          <PhotoPreview photoType={'wide'} url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
+          <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
         </StyledPhotosHomeHalfWidthBlock>
 
         <StyledPhotosHomeQuarterFlex>
           <StyledPhotosHomeHalfHeightBlockTop>
-
+            <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
           </StyledPhotosHomeHalfHeightBlockTop>
 
           <StyledPhotosHomeHalfHeightBlockBottom>
-
+            <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
           </StyledPhotosHomeHalfHeightBlockBottom>
+
         </StyledPhotosHomeQuarterFlex>
 
         <StyledPhotosHomeQuarterFlex>
-          <StyledPhotosHomeHalfHeightBlockTop>
 
+          <StyledPhotosHomeHalfHeightBlockTop>
+            <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
           </StyledPhotosHomeHalfHeightBlockTop>
 
           <StyledPhotosHomeHalfHeightBlockBottom>
-
+          <PhotoPreview url={'https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg'} />
           </StyledPhotosHomeHalfHeightBlockBottom>
+
         </StyledPhotosHomeQuarterFlex>
       </StyledPhotosHomeContainerFlex>
     )
