@@ -6,6 +6,7 @@ module.exports = {
     filename: "calendarwidget.js",
     path: path.join(__dirname, "/public"),
   },
+  devtool: "source-map",
   module: {
     rules: [
       {

@@ -350,6 +350,133 @@ export const DropDownIconSVG = styled.svg`
   fill: currentcolor;
 `;
 
+/// CALENDAR PICKER PANEL ///
+
+export const GuestsPickerPanelContainer = styled.div`
+  background: rgb(255, 255, 255) !important;
+  border-radius: 4px !important;
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px, rgb(0 0 0 / 7%) 0px 0px 0px 1px !important;
+  box-sizing: border-box !important;
+  margin-bottom: 16px !important;
+  min-width: 280px !important;
+  padding: 16px !important;
+  position: absolute !important;
+  text-align: left !important;
+  width: 100% !important;
+  z-index: 999 !important;
+  right: 0px !important;
+`;
+
+export const Adults = styled.div`
+  margin-bottom: 24px !important;
+  margin-top: 8px !important;
+`;
+
+export const Adults2 = styled.div`
+  -webkit-box-align: center !important;
+  align-items: center !important;
+  display: flex !important;
+  width: 100% !important;
+  color: rgb(34, 34, 34) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+`;
+
+export const Adults3 = styled.div`
+  flex: 1 1 0% !important;
+`;
+
+export const AdultsText = styled.div`
+  font-size: 16px !important;
+  line-height: 20px !important;
+  padding-bottom: 4px !important;
+  font-weight: 600 !important;
+`;
+
+export const AddSubtractGuests = styled.div`
+  display: flex !important;
+`;
+
+export const AddSubtractGuests2 = styled.div`
+  -webkit-box-pack: justify !important;
+  -webkit-box-align: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 104px !important;
+  height: 32px !important;
+  color: rgb(34, 34, 34) !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+`;
+
+export const SubtractButtonDisabled = styled.button`
+  -webkit-box-pack: center !important;
+  -webkit-box-align: center !important;
+  -webkit-box-flex: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  cursor: not-allowed !important;
+  display: inline-flex !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(235, 235, 235) !important;
+  color: rgb(235, 235, 235) !important;
+  font-family: inherit !important;
+  outline: none !important;
+  touch-action: manipulation !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgb(255, 255, 255) !important;
+  border-radius: 50% !important;
+`;
+
+export const SubtractButtonSpan = styled.span`
+  height: 22px !important;
+  width: 22px !important;
+  padding: 5px !important;
+`;
+
+export const SubtractButtonSVG = styled.svg`
+  display: block;
+  fill: none;
+  height: 12px;
+  width: 12px;
+  stroke: currentcolor;
+  stroke-width: 5.33333;
+  overflow: visible;
+`;
+
+export const GuestCounter = styled.div`
+  position: relative !important;
+  color: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+`;
+
+export const GuestCount = styled.div``;
+
+export const AddButton = styled.div``;
+
+export const Children = styled.div``;
+
+export const Infants = styled.div``;
+
+export const MaxGuests = styled.div``;
+
+export const Close = styled.div``;
+
 /// CHECK AVAILABILITY ///
 
 export const CheckAvailabilityContainer = styled(CheckAvailability)`
