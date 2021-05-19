@@ -117,51 +117,29 @@ const StyledShowAllPhotos = styled.div`
 class PhotoHome extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      photos: null
-    }
-  }
-
-  getPhotos(listingId) {
-    return axios.get(`http://localhost:3003/photos/${this.props.listingId}`)
-      .then(photos => {
-        return photos.data;
-      })
-      .catch(err => console.log('err:', err)); // need to return err
-  }
-
-  componentDidMount() {
-    let photos;
-    this.getPhotos(this.props.listingId)
-      .then(photos => {
-        this.setState({
-          photos
-        });
-      })
-      .catch(err => console.log('err in getPhotos: ', err));
   }
 
   render() {
+    console.log('this.props.photos: ', this.props.photos);
     let photoHome;
-
-    if (this.state.photos) {
-      if (this.state.photos.length >= 5) {
+    if (this.props.photos) {
+      if (this.props.photos.length >= 5) {
         // 5 photos
         photoHome = (
           <StyledPhotoHomeContainerBlock>
             <StyledPhotoHomeContainerFlex>
 
               <StyledPhotoHomeHalfWidthBlock>
-                <PhotoHomeElement url={this.state.photos[0].url} />
+                <PhotoHomeElement url={this.props.photos[0].url} />
               </StyledPhotoHomeHalfWidthBlock>
 
               <StyledPhotoHomeQuarterFlex>
                 <StyledPhotoHomeHalfHeightBlockTop>
-                  <PhotoHomeElement url={this.state.photos[1].url} />
+                  <PhotoHomeElement url={this.props.photos[1].url} />
                 </StyledPhotoHomeHalfHeightBlockTop>
 
                 <StyledPhotoHomeHalfHeightBlockBottom>
-                  <PhotoHomeElement url={this.state.photos[2].url} />
+                  <PhotoHomeElement url={this.props.photos[2].url} />
                 </StyledPhotoHomeHalfHeightBlockBottom>
 
               </StyledPhotoHomeQuarterFlex>
@@ -169,11 +147,11 @@ class PhotoHome extends React.Component {
               <StyledPhotoHomeQuarterFlex>
 
                 <StyledPhotoHomeHalfHeightBlockTop>
-                  <PhotoHomeElement url={this.state.photos[3].url} />
+                  <PhotoHomeElement url={this.props.photos[3].url} />
                 </StyledPhotoHomeHalfHeightBlockTop>
 
                 <StyledPhotoHomeHalfHeightBlockBottom>
-                <PhotoHomeElement url={this.state.photos[4].url} />
+                <PhotoHomeElement url={this.props.photos[4].url} />
                 </StyledPhotoHomeHalfHeightBlockBottom>
 
               </StyledPhotoHomeQuarterFlex>
@@ -191,7 +169,7 @@ class PhotoHome extends React.Component {
           </StyledPhotoHomeContainerBlock>
 
         )
-      } else if (this.state.photos.length >= 3) {
+      } else if (this.props.photos.length >= 3) {
         // 3 photos
         photoHome = (
         <StyledPhotoHomeContainerBlock>
@@ -199,16 +177,16 @@ class PhotoHome extends React.Component {
           <StyledPhotoHomeContainerFlex>
 
           <StyledPhotoHomeTwoThirdWidthBlock>
-            <PhotoHomeElement url={this.state.photos[0].url} />
+            <PhotoHomeElement url={this.props.photos[0].url} />
           </StyledPhotoHomeTwoThirdWidthBlock>
 
           <StyledPhotoHomeOneThirdFlex>
             <StyledPhotoHomeHalfHeightBlockTop>
-              <PhotoHomeElement url={this.state.photos[1].url} />
+              <PhotoHomeElement url={this.props.photos[1].url} />
             </StyledPhotoHomeHalfHeightBlockTop>
 
             <StyledPhotoHomeHalfHeightBlockBottom>
-              <PhotoHomeElement url={this.state.photos[2].url} />
+              <PhotoHomeElement url={this.props.photos[2].url} />
             </StyledPhotoHomeHalfHeightBlockBottom>
           </StyledPhotoHomeOneThirdFlex>
 
@@ -224,14 +202,14 @@ class PhotoHome extends React.Component {
 
         </StyledPhotoHomeContainerBlock>
         );
-      } else if (this.state.photos.length >= 1) {
+      } else if (this.props.photos.length >= 1) {
         // 1 photo
         photoHome = (
         <StyledPhotoHomeContainerBlock>
 
           <StyledPhotoHomeContainerFlex>
             <StyledPhotoHomeFullWidthBlock>
-              <PhotoHomeElement url={this.state.photos[0].url}></PhotoHomeElement>
+              <PhotoHomeElement url={this.props.photos[0].url}></PhotoHomeElement>
             </StyledPhotoHomeFullWidthBlock>
           </StyledPhotoHomeContainerFlex>
 

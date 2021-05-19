@@ -8,28 +8,56 @@ class Photos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listingId: null
+      listing_id: null,
+      photos: null,
+      view: 'photoHome'
     }
   }
 
-  componentDidMount() {
-    if (!this.state.listingId) {
-      this.setState({
-        listingId: this.props.listingId
+  getPhotos(listing_id) {
+    return axios.get(`http://localhost:2004/photos/${listing_id}`)
+      .then(photos => {
+        return photos.data;
       })
+      .catch(err => console.log('err:', err)); // need to return err
+  }
+
+  componentDidMount() {
+    if (!this.state.listing_id) {
+      let photos;
+      this.getPhotos(this.props.listing_id)
+        .then(photos => {
+          this.setState({
+            listing_id: this.props.listing_id,
+            photos
+          });
+        })
+        .catch(err => console.log('err in getPhotos: ', err));
     }
   }
 
   render() {
+    let photoComponent;
+
+    if (this.state.view === 'photoHome') {
+      photoComponent = (
+        <PhotoHome photos={this.state.photos}/>
+      )
+    } else if (this.state.view === 'photoGallery') {
+      photoComponent = (
+        <div></div>
+      )
+    }
+
     return (
       <div id='photos-module'>
-        <PhotoHome listingId={this.state.listingId}/>
+        {photoComponent}
       </div>
     )
   }
 }
 
-ReactDOM.render(<Photos listingId={12}/>, document.getElementById('Photos'));
+ReactDOM.render(<Photos listing_id={25}/>, document.getElementById('Photos'));
 
 // 3 templates: 5, 3, 1 photo(s)
 // 5 photo widths: 50% 25% 25%
