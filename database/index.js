@@ -19,7 +19,20 @@ const Photo = db.define('Photo', {
   listing_id: Sequelize.INTEGER
 });
 
-const findForListingId = function(listingId, callback) {
+const Host = db.define('Host', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  hostImage: Sequelize.STRING,
+  hostName: Sequelize.STRING,
+  hostRating: Sequelize.DECIMAL(2,1),
+  superHost: Sequelize.BOOLEAN,
+  hostListingCount: Sequelize.INTEGER
+});
+
+const findForListingId = function(listing_id, callback) {
   Photo.sync()
     .then(function() {
       return Photo.findAll({
@@ -32,9 +45,8 @@ const findForListingId = function(listingId, callback) {
           'listing_id'
         ],
         where: {
-          listing_id: listingId
-        },
-        limit: 5
+          listing_id
+        }
       })
     })
     .then(function(result) {
@@ -49,6 +61,36 @@ const findForListingId = function(listingId, callback) {
       console.log('err', err);
       callback(err);
     })
-}
+};
 
-module.exports.findForListingId = findForListingId;
+const findForHostId = function(host_id, callback) {
+  Host.sync()
+    .then(function() {
+      return Host.findAll({
+        attributes: [
+          'id',
+          'hostImage',
+          'hostName',
+          'hostRating',
+          'superHost',
+          'hostListingCount'
+        ],
+        where: {
+          id: host_id
+        }
+      })
+    })
+    .then(function(result) {
+      console.log('host', result[0].dataValues);
+      callback(null, result[0].dataValues);
+    })
+    .catch(function(err) {
+      console.log('err', err);
+      callback(err);
+    })
+};
+
+module.exports = {
+  findForListingId,
+  findForHostId
+};
