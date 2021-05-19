@@ -275,7 +275,7 @@ export const GuestsFunctionality = styled.div`
   outline: 0px !important;
 `;
 
-export const Guests = styled.div`
+export const TotalGuestsHeader = styled.div`
   position: absolute !important;
   top: 12px !important;
   left: 12px !important;
@@ -383,7 +383,7 @@ export const Adults2 = styled.div`
   font-weight: 400 !important;
 `;
 
-export const Adults3 = styled.div`
+export const AdultsTextContainer = styled.div`
   flex: 1 1 0% !important;
 `;
 
@@ -441,6 +441,33 @@ export const SubtractButtonDisabled = styled.button`
   border-radius: 50% !important;
 `;
 
+export const SubtractButtonEnabled = styled.button`
+  -webkit-box-pack: center !important;
+  -webkit-box-align: center !important;
+  -webkit-box-flex: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(176, 176, 176) !important;
+  color: rgb(113, 113, 113) !important;
+  font-family: inherit !important;
+  outline: none !important;
+  touch-action: manipulation !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgb(255, 255, 255) !important;
+  border-radius: 50% !important;
+`;
+
 export const SubtractButtonSpan = styled.span`
   height: 22px !important;
   width: 22px !important;
@@ -467,11 +494,48 @@ export const GuestCounter = styled.div`
 
 export const GuestCount = styled.div``;
 
-export const AddButton = styled.div``;
+export const AddButtonEnabled = styled.button`
+  -webkit-box-pack: center !important;
+  -webkit-box-align: center !important;
+  -webkit-box-flex: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(176, 176, 176) !important;
+  color: rgb(113, 113, 113) !important;
+  font-family: inherit !important;
+  outline: none !important;
+  touch-action: manipulation !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgb(255, 255, 255) !important;
+  border-radius: 50% !important;
+`;
 
-export const Children = styled.div``;
+export const AddButtonSpan = styled.div`
+  height: 22px !important;
+  width: 22px !important;
+  padding: 5px !important;
+`;
 
-export const Infants = styled.div``;
+export const AddButtonSVG = styled.svg`
+  display: block;
+  fill: none;
+  height: 12px;
+  width: 12px;
+  stroke: currentcolor;
+  stroke-width: 5.33333;
+  overflow: visible;
+`;
 
 export const MaxGuests = styled.div``;
 

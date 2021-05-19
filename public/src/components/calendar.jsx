@@ -11,6 +11,7 @@ export class Calendar extends React.Component {
       adultsGuestCount: 1,
       childrenGuestCount: 0,
       infantsGuestCount: 0,
+      totalGuestCount: 1,
     };
 
     this.toggleDatesPanel = this.toggleDatesPanel.bind(this);
@@ -38,36 +39,42 @@ export class Calendar extends React.Component {
   incrementAdultGuests() {
     this.setState({
       adultsGuestCount: this.state.adultsGuestCount + 1,
+      totalGuestCount: this.state.totalGuestCount + 1,
     });
   }
 
   decrementAdultGuests() {
     this.setState({
       adultsGuestCount: this.state.adultsGuestCount - 1,
+      totalGuestCount: this.state.totalGuestCount - 1,
     });
   }
 
   incrementChildrenGuests() {
     this.setState({
       childrenGuestCount: this.state.childrenGuestCount + 1,
+      totalGuestCount: this.state.totalGuestCount + 1,
     });
   }
 
   decrementChildrenGuests() {
     this.setState({
       childrenGuestCount: this.state.childrenGuestCount - 1,
+      totalGuestCount: this.state.totalGuestCount - 1,
     });
   }
 
   incrementInfantGuests() {
     this.setState({
       infantsGuestCount: this.state.infantsGuestCount + 1,
+      totalGuestCount: this.state.totalGuestCount + 1,
     });
   }
 
   decrementInfantGuests() {
     this.setState({
       infantsGuestCount: this.state.infantsGuestCount - 1,
+      totalGuestCount: this.state.totalGuestCount - 1,
     });
   }
 
@@ -118,7 +125,7 @@ export class Calendar extends React.Component {
 
     if (guestsPanel) {
       guestsContainer = (
-        <s.GuestsContainer onClick={() => this.toggleGuestsPanel()}>
+        <s.GuestsContainer>
           <s.GuestsContainer2>
             <s.GuestsContainer3 style={{ flex: "1 1 0%" }}>
               <s.inset3
@@ -128,11 +135,15 @@ export class Calendar extends React.Component {
                   inset: "0px 0px -1px",
                 }}
               ></s.inset3>
-              <s.GuestsFunctionality>
-                <s.Guests>Guests</s.Guests>
+              <s.GuestsFunctionality onClick={() => this.toggleGuestsPanel()}>
+                <s.TotalGuestsHeader>Guests</s.TotalGuestsHeader>
                 <s.NumberOfGuestsContainer>
                   <s.NumberOfGuestsContainer2>
-                    <s.NumberOfGuests>1 guest</s.NumberOfGuests>
+                    <s.NumberOfGuests>
+                      {this.state.totalGuestCount > 1
+                        ? `${this.state.totalGuestCount} guests`
+                        : `${this.state.totalGuestCount} guest`}
+                    </s.NumberOfGuests>
                   </s.NumberOfGuestsContainer2>
                 </s.NumberOfGuestsContainer>
                 <s.DropDownIconContainer>
@@ -161,10 +172,28 @@ export class Calendar extends React.Component {
               <s.GuestsPickerPanelContainer>
                 <s.Adults>
                   <s.Adults2>
-                    <s.Adults3>
+                    <s.AdultsTextContainer>
                       <s.AdultsText>Adults</s.AdultsText>
-                      <s.AddSubtractGuests>
-                        <s.AddSubtractGuests2>
+                    </s.AdultsTextContainer>
+                    <s.AddSubtractGuests>
+                      <s.AddSubtractGuests2>
+                        {this.state.adultsGuestCount > 1 ? (
+                          <s.SubtractButtonEnabled
+                            onClick={() => this.decrementAdultGuests()}
+                          >
+                            <s.SubtractButtonSpan>
+                              <s.SubtractButtonSVG
+                                viewBox="0 0 32 32"
+                                xmlns="http://www.w3.org/2000/svg"
+                                role="presentation"
+                                aria-hidden="true"
+                                focusable="false"
+                              >
+                                <path d="m2 16h28"></path>
+                              </s.SubtractButtonSVG>
+                            </s.SubtractButtonSpan>
+                          </s.SubtractButtonEnabled>
+                        ) : (
                           <s.SubtractButtonDisabled>
                             <s.SubtractButtonSpan>
                               <s.SubtractButtonSVG
@@ -178,19 +207,32 @@ export class Calendar extends React.Component {
                               </s.SubtractButtonSVG>
                             </s.SubtractButtonSpan>
                           </s.SubtractButtonDisabled>
-                          <s.GuestCounter>
-                            <s.GuestCount>
-                              {this.state.adultsGuestCount}
-                            </s.GuestCount>
-                          </s.GuestCounter>
-                          <s.AddButton></s.AddButton>
-                        </s.AddSubtractGuests2>
-                      </s.AddSubtractGuests>
-                    </s.Adults3>
+                        )}
+
+                        <s.GuestCounter>
+                          <s.GuestCount>
+                            {this.state.adultsGuestCount}
+                          </s.GuestCount>
+                        </s.GuestCounter>
+                        <s.AddButtonEnabled
+                          onClick={() => this.incrementAdultGuests()}
+                        >
+                          <s.AddButtonSpan>
+                            <s.AddButtonSVG
+                              viewBox="0 0 32 32"
+                              xmlns="http://www.w3.org/2000/svg"
+                              role="presentation"
+                              aria-hidden="true"
+                              focusable="false"
+                            >
+                              <path d="m2 16h28m-14-14v28"></path>
+                            </s.AddButtonSVG>
+                          </s.AddButtonSpan>
+                        </s.AddButtonEnabled>
+                      </s.AddSubtractGuests2>
+                    </s.AddSubtractGuests>
                   </s.Adults2>
                 </s.Adults>
-                <s.Children></s.Children>
-                <s.Infants></s.Infants>
                 <s.MaxGuests></s.MaxGuests>
                 <s.Close>closing up shop...</s.Close>
               </s.GuestsPickerPanelContainer>
@@ -200,7 +242,7 @@ export class Calendar extends React.Component {
       );
     } else {
       guestsContainer = (
-        <s.GuestsContainer onClick={() => this.toggleGuestsPanel()}>
+        <s.GuestsContainer>
           <s.GuestsContainer2>
             <s.GuestsContainer3 style={{ flex: "1 1 0%" }}>
               <s.inset3
@@ -210,8 +252,8 @@ export class Calendar extends React.Component {
                   inset: "0px 0px -1px",
                 }}
               ></s.inset3>
-              <s.GuestsFunctionality>
-                <s.Guests>Guests</s.Guests>
+              <s.GuestsFunctionality onClick={() => this.toggleGuestsPanel()}>
+                <s.TotalGuestsHeader>Guests</s.TotalGuestsHeader>
                 <s.NumberOfGuestsContainer>
                   <s.NumberOfGuestsContainer2>
                     <s.NumberOfGuests>1 guest</s.NumberOfGuests>
