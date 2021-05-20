@@ -52,7 +52,7 @@ const StyledPhotoHomeHalfFlex = styled.div`
   box-sizing: border-box;
   width: 50%;
   height: 100%;
-  padding-left:10px;
+  padding-left:8px;
 `
 
 const StyledPhotoHomeOneThirdFlex = styled.div`
@@ -60,7 +60,7 @@ const StyledPhotoHomeOneThirdFlex = styled.div`
   box-sizing: border-box;
   width: 33%;
   height: 100%;
-  padding-left:10px;
+  padding-left:8px;
 `
 
 const StyledPhotoHomeQuarterFlex = styled.div`
@@ -68,7 +68,7 @@ const StyledPhotoHomeQuarterFlex = styled.div`
   box-sizing: border-box;
   width: 25%;
   height: 100%;
-  padding-left:10px;
+  padding-left:8px;
 `
 
 const StyledPhotoHomeHalfHeightBlockTop = styled.div`
@@ -83,7 +83,7 @@ const StyledPhotoHomeHalfHeightBlockBottom = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 50%;
-  padding-top:12px;
+  padding-top:8px;
 `
 
 const StyledShowAllPhotosContainerBlock = styled.div`
@@ -104,14 +104,18 @@ const StyledShowAllPhotosContainerFlex = styled.div`
   -webkit-box-align: center;
   align-items: center;
   justify-content: center;
+  height: 34px;
 `
 
 const StyledShowAllPhotos = styled.div`
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-  font-size: 14px;
   font-weight: 600;
   margin: auto;
   text-align: center;
+  font-size: 0.85em;
+  padding: 0.25em 1em;
+  border: 2px solid black;
+  background-color: white;
 `
 
 class PhotoHome extends React.Component {
@@ -158,8 +162,8 @@ class PhotoHome extends React.Component {
 
             </StyledPhotoHomeContainerFlex>
 
-            <StyledShowAllPhotosContainerBlock>
-              <StyledShowAllPhotosContainerFlex>
+            <StyledShowAllPhotosContainerBlock onClick={this.props.changeGalleryDisplayMode}>
+              <StyledShowAllPhotosContainerFlex >
                 <StyledShowAllPhotos>
                   Show all photos
                 </StyledShowAllPhotos>
@@ -192,7 +196,7 @@ class PhotoHome extends React.Component {
 
           </StyledPhotoHomeContainerFlex>
 
-          <StyledShowAllPhotosContainerBlock>
+          <StyledShowAllPhotosContainerBlock onClick={this.props.changeGalleryDisplayMode}>
             <StyledShowAllPhotosContainerFlex>
               <StyledShowAllPhotos>
                     Show all photos
@@ -213,7 +217,7 @@ class PhotoHome extends React.Component {
             </StyledPhotoHomeFullWidthBlock>
           </StyledPhotoHomeContainerFlex>
 
-          <StyledShowAllPhotosContainerBlock>
+          <StyledShowAllPhotosContainerBlock onClick={this.props.changeGalleryDisplayMode}>
             <StyledShowAllPhotosContainerFlex>
               <StyledShowAllPhotos>
                     Show all photos

@@ -2,7 +2,8 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const axios = require('axios');
 import styled from 'styled-components';
-import PhotoHome from './components/PhotoHome.jsx'
+import PhotoHome from './components/PhotoHome.jsx';
+import PhotoGallery from './components/PhotoGallery.jsx';
 
 class Photos extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class Photos extends React.Component {
     this.state = {
       listing_id: null,
       photos: null,
-      view: 'photoHome'
+      activeGallery: false,
+      activeSlideshow: false
     }
   }
 
@@ -20,6 +22,18 @@ class Photos extends React.Component {
         return photos.data;
       })
       .catch(err => console.log('err:', err)); // need to return err
+  }
+
+  changeGalleryDisplayMode = () => {
+    this.setState({
+      activeGallery: !this.state.activeGallery
+    })
+  }
+
+  changeSlideshowDisplayMode = () => {
+    this.setState({
+      activeSlideshow: !this.state.activeSlideshow
+    })
   }
 
   componentDidMount() {
@@ -37,22 +51,20 @@ class Photos extends React.Component {
   }
 
   render() {
-    let photoComponent;
+    let galleryDisplayMode = this.state.activeGallery === false ? 'none' : 'block';
 
-    if (this.state.view === 'photoHome') {
-      photoComponent = (
-        <PhotoHome photos={this.state.photos}/>
-      )
-    } else if (this.state.view === 'photoGallery') {
-      photoComponent = (
-        <div></div>
-      )
-    }
+    let slideshowDisplayModee = this.state.activeSlideshow === false ? 'none' : 'block';
 
     return (
-      <div id='photos-module'>
-        {photoComponent}
+      <div position='fixed' overflow='hidden' inset='0px'>
+        <div id='photos-module' className='module'>
+          <PhotoHome photos={this.state.photos} changeGalleryDisplayMode={this.changeGalleryDisplayMode}/>
+        </div>
+        <div id='photo-gallery'>
+          <PhotoGallery photos={this.state.photos} changeGalleryDisplayMode={this.changeGalleryDisplayMode} activeGallery={this.state.activeGallery}/>
+        </div>
       </div>
+
     )
   }
 }
