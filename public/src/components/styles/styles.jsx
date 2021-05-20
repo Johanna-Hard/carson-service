@@ -126,7 +126,7 @@ export const ReviewsSpan = styled.span`
   text-decoration: underline !important;
 `;
 
-/// CALENDAR ///
+/// CALENDAR STRUCTURE ///
 
 export const CalendarContainer = styled(Calendar)`
   margin-bottom: 16px !important;
@@ -141,6 +141,8 @@ export const CalendarContainer3 = styled.div`
   position: relative !important;
   background-color: #ffffff !important;
 `;
+
+/// CHECK IN CHECK OUT ///
 
 export const CheckInCheckOutContainer = styled.div`
   display: flex !important;
@@ -350,7 +352,7 @@ export const DropDownIconSVG = styled.svg`
   fill: currentcolor;
 `;
 
-/// CALENDAR PICKER PANEL ///
+/// GUESTS PANEL PICKER ///
 
 export const GuestsPickerPanelContainer = styled.div`
   background: rgb(255, 255, 255) !important;
@@ -367,12 +369,12 @@ export const GuestsPickerPanelContainer = styled.div`
   right: 0px !important;
 `;
 
-export const Adults = styled.div`
+export const GuestsOptionContainer = styled.div`
   margin-bottom: 24px !important;
   margin-top: 8px !important;
 `;
 
-export const Adults2 = styled.div`
+export const GuestsOptionContainer2 = styled.div`
   -webkit-box-align: center !important;
   align-items: center !important;
   display: flex !important;
@@ -383,11 +385,11 @@ export const Adults2 = styled.div`
   font-weight: 400 !important;
 `;
 
-export const AdultsTextContainer = styled.div`
+export const GuestsTextContainer = styled.div`
   flex: 1 1 0% !important;
 `;
 
-export const AdultsText = styled.div`
+export const GuestsText = styled.div`
   font-size: 16px !important;
   line-height: 20px !important;
   padding-bottom: 4px !important;
@@ -521,6 +523,33 @@ export const AddButtonEnabled = styled.button`
   border-radius: 50% !important;
 `;
 
+export const AddButtonDisabled = styled.button`
+  -webkit-box-pack: center !important;
+  -webkit-box-align: center !important;
+  -webkit-box-flex: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  cursor: not-allowed !important;
+  display: inline-flex !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(235, 235, 235) !important;
+  color: rgb(235, 235, 235) !important;
+  font-family: inherit !important;
+  outline: none !important;
+  touch-action: manipulation !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgb(255, 255, 255) !important;
+  border-radius: 50% !important;
+`;
+
 export const AddButtonSpan = styled.div`
   height: 22px !important;
   width: 22px !important;
@@ -537,9 +566,42 @@ export const AddButtonSVG = styled.svg`
   overflow: visible;
 `;
 
-export const MaxGuests = styled.div``;
+export const MaxGuests = styled.div`
+  font-size: 14px !important;
+  line-height: 20px !important;
+  color: rgb(34, 34, 34) !important;
+  margin-bottom: 16px !important;
+`;
 
-export const Close = styled.div``;
+export const CloseButtonContainer = styled.div`
+  -webkit-box-pack: end !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+`;
+
+export const CloseButton = styled.button`
+  cursor: pointer !important;
+  display: inline-block !important;
+  margin: 0px -10px !important;
+  position: relative !important;
+  text-align: center !important;
+  width: auto !important;
+  touch-action: manipulation !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  outline: none !important;
+  padding: 10px !important;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+    -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
+  border: none !important;
+  background: transparent !important;
+  color: rgb(34, 34, 34) !important;
+  text-decoration: underline !important;
+`;
 
 /// CHECK AVAILABILITY ///
 

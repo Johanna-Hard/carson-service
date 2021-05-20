@@ -6,7 +6,7 @@ const fakeListingsData = () => {
   while (fakeData.length <= 100) {
     fakeData.push({
       numberOfGuests: faker.datatype.number({
-        min: 1,
+        min: 2,
         max: 12,
       }),
       pricePerNight: faker.datatype.number({
