@@ -5,8 +5,8 @@ import PhotoHomeElement from './PhotoHomeElement.jsx'
 
 const StyledPhotoHomeContainerBlock = styled.div`
   display: block;
-  width: 1432px;
-  height: 664px;
+  width: 1280px;
+  height: 640px;
   padding-left: 76px;
   padding-right: 76px;
   padding-top: 24px;
@@ -18,8 +18,8 @@ const StyledPhotoHomeContainerBlock = styled.div`
 const StyledPhotoHomeContainerFlex = styled.div`
   display: flex;
   flex-flow: row wrap;
-  width: 1280px;
-  height: 640px;
+  width: 1128;
+  height: 564px;
   padding-left: 76px;
   padding-right: 76px;
   padding-top: 24px;

@@ -58,7 +58,7 @@ class Photos extends React.Component {
     return (
       <div position='fixed' overflow='hidden' inset='0px'>
         <div id='photos-module' className='module'>
-          <PhotoHome photos={this.state.photos} changeGalleryDisplayMode={this.changeGalleryDisplayMode}/>
+          <PhotoHome photos={this.state.photos ? this.state.photos.slice(0, 5) : null} changeGalleryDisplayMode={this.changeGalleryDisplayMode}/>
         </div>
         <div id='photo-gallery'>
           <PhotoGallery photos={this.state.photos} changeGalleryDisplayMode={this.changeGalleryDisplayMode} activeGallery={this.state.activeGallery}/>
