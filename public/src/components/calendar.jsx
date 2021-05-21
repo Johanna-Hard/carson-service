@@ -70,6 +70,7 @@ export class Calendar extends React.Component {
     let datesContainer;
     let guestsContainer;
     let NumberofGuestsDisplay;
+
     if (this.state.totalGuestCount > 1 && this.state.Infants == 0) {
       NumberofGuestsDisplay = `${this.state.totalGuestCount} guests`;
     } else if (this.state.totalGuestCount > 1 && this.state.Infants == 1) {
@@ -417,45 +418,45 @@ export class Calendar extends React.Component {
           </s.GuestsContainer2>
         </s.GuestsContainer>
       );
+    }
 
-      if (datesPanel) {
-        datesContainer = <div>yo dates</div>;
-      } else {
-        datesContainer = (
-          <s.CheckInCheckOutContainer onClick={() => this.toggleDatesPanel()}>
-            <s.CheckInCheckOutContainer2>
-              <s.CheckInCheckOutContainer3 style={{ flex: "1 1 0%" }}>
-                <s.inset1
-                  style={{
-                    background: "none",
-                    borderRadius: "8px 8px 0px 0px",
-                    inset: "0px 0px -1px",
-                  }}
-                ></s.inset1>
-                <s.CheckInCheckOutFunctionality>
-                  <s.CheckInContainer>
-                    <s.CheckInCheckOut>Check-in</s.CheckInCheckOut>
-                    <s.AddDate>Add date</s.AddDate>
-                  </s.CheckInContainer>
-                  <s.CheckOutContainer>
-                    <s.CheckInCheckOut>Checkout</s.CheckInCheckOut>
-                    <s.AddDate>Add date</s.AddDate>
-                  </s.CheckOutContainer>
-                </s.CheckInCheckOutFunctionality>
-                <s.inset2
-                  style={{
-                    inset: "0px 0px -1px",
-                    borderRadius: "8px 8px 0px 0px",
-                    borderColor: "rgb(176, 176, 176)",
-                    borderWidth: "1px",
-                    zIndex: "0",
-                  }}
-                ></s.inset2>
-              </s.CheckInCheckOutContainer3>
-            </s.CheckInCheckOutContainer2>
-          </s.CheckInCheckOutContainer>
-        );
-      }
+    if (datesPanel) {
+      datesContainer = <div>i'm a div</div>;
+    } else {
+      datesContainer = (
+        <s.CheckInCheckOutContainer onClick={() => this.toggleDatesPanel()}>
+          <s.CheckInCheckOutContainer2>
+            <s.CheckInCheckOutContainer3 style={{ flex: "1 1 0%" }}>
+              <s.inset1
+                style={{
+                  background: "none",
+                  borderRadius: "8px 8px 0px 0px",
+                  inset: "0px 0px -1px",
+                }}
+              ></s.inset1>
+              <s.CheckInCheckOutFunctionality>
+                <s.CheckInContainer>
+                  <s.CheckInCheckOut>Check-in</s.CheckInCheckOut>
+                  <s.AddDate>Add date</s.AddDate>
+                </s.CheckInContainer>
+                <s.CheckOutContainer>
+                  <s.CheckInCheckOut>Checkout</s.CheckInCheckOut>
+                  <s.AddDate>Add date</s.AddDate>
+                </s.CheckOutContainer>
+              </s.CheckInCheckOutFunctionality>
+              <s.inset2
+                style={{
+                  inset: "0px 0px -1px",
+                  borderRadius: "8px 8px 0px 0px",
+                  borderColor: "rgb(176, 176, 176)",
+                  borderWidth: "1px",
+                  zIndex: "0",
+                }}
+              ></s.inset2>
+            </s.CheckInCheckOutContainer3>
+          </s.CheckInCheckOutContainer2>
+        </s.CheckInCheckOutContainer>
+      );
     }
 
     return (

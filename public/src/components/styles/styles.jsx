@@ -10,6 +10,7 @@ export const WidgetContainer = styled.div`
   padding: 24px;
   box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
   margin-top: 48px;
+  -webkit-font-smoothing: antialiased;
 `;
 
 export const StyledBookIt = styled(BookIt)`
@@ -146,6 +147,7 @@ export const CalendarContainer3 = styled.div`
 
 export const CheckInCheckOutContainer = styled.div`
   display: flex !important;
+  box-sizing: border-box;
 `;
 
 export const CheckInCheckOutContainer2 = styled.div`
