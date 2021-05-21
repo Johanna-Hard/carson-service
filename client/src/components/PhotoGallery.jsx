@@ -22,6 +22,7 @@ const StyledGalleryModalHeader = styled.div`
 
 const StyledGalleryModalBody1 = styled.div`
   display: flex;
+  flex-direction: column;
   width: 752px;
   height: 100%;
   padding-bottom: 24px;
@@ -29,10 +30,12 @@ const StyledGalleryModalBody1 = styled.div`
   margin: auto;
 `
 
-const StyledGalleryModalBody2 = styled.div`
+// 504px * 1.3, 1, 0.7
+const StyledGalleryModalBlock = styled.div`
   display: block;
   width: 752px;
-  height: 504px;
+  height: ${props => props.height};
+  padding-bottom: 8px;
 `
 
 const StyledGalleryModalHeaderCloseFlex = styled.div`
@@ -61,6 +64,18 @@ class PhotoGallery extends React.Component {
   }
 
   render() {
+    const photos = [];
+    if (this.props.photos) {
+      this.props.photos.forEach(function(photo) {
+        photos.push(
+          <StyledGalleryModalBlock height='504px'>
+            <StyledPhotoGalleryElement src={photo.url}>
+            </StyledPhotoGalleryElement>
+          </StyledGalleryModalBlock>
+        )
+      })
+    }
+
     return (
         <StyledGalleryModal activeGallery={this.props.activeGallery}>
           <StyledGalleryModalHeader>
@@ -71,10 +86,7 @@ class PhotoGallery extends React.Component {
             </StyledGalleryModalHeaderCloseFlex>
           </StyledGalleryModalHeader>
           <StyledGalleryModalBody1>
-            <StyledGalleryModalBody2>
-              <StyledPhotoGalleryElement src='https://a0.muscache.com/im/pictures/a5bde047-5dc9-444a-a6cd-1fd86943a991.jpg?im_w=1200'>
-              </StyledPhotoGalleryElement>
-            </StyledGalleryModalBody2>
+            {photos}
           </StyledGalleryModalBody1>
         </StyledGalleryModal>
     )
