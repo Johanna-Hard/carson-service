@@ -19,13 +19,27 @@ const Photo = db.define('Photo', {
   listing_id: Sequelize.INTEGER
 });
 
+// hosts
+const Host = db.define('Host', {
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  hostImage: Sequelize.STRING,
+  hostName: Sequelize.STRING,
+  hostRating: Sequelize.DECIMAL(2,1),
+  superHost: Sequelize.BOOLEAN,
+  hostListingCount: Sequelize.INTEGER
+});
+
 function populatePhotos() {
   Photo.sync()
     .then(function() {
       // generate 1-15 photos per listing
       axios.get('https://api.unsplash.com/photos/random', {
         params: {
-          query: 'apartment',
+          query: 'rooms',
           count: 30
         },
         headers: {
@@ -57,30 +71,6 @@ function populatePhotos() {
         .catch(err => console.log('err', err));
     });
 }
-
-// photos
-let count = 0;
-let seedPhotos = setInterval(function() {
-  populatePhotos();
-  count++;
-  if (count > 40) {
-    clearInterval(seedPhotos);
-  }
-}, 10000);
-
-// hosts
-const Host = db.define('Host', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  hostImage: Sequelize.STRING,
-  hostName: Sequelize.STRING,
-  hostRating: Sequelize.DECIMAL(2,1),
-  superHost: Sequelize.BOOLEAN,
-  hostListingCount: Sequelize.INTEGER
-});
 
 function populateHosts() {
   Host.sync()
@@ -114,11 +104,22 @@ function populateHosts() {
     });
 }
 
+// photos
 let count = 0;
-let seedHosts = setInterval(function() {
-  populateHosts();
+let seedPhotos = setInterval(function() {
+  populatePhotos();
   count++;
-  if (count > 4) {
-    clearInterval(seedHosts);
+  if (count > 40) {
+    clearInterval(seedPhotos);
   }
 }, 10000);
+
+// hosts
+// let count = 0;
+// let seedHosts = setInterval(function() {
+//   populateHosts();
+//   count++;
+//   if (count > 4) {
+//     clearInterval(seedHosts);
+//   }
+// }, 10000);

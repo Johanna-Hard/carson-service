@@ -12,6 +12,7 @@ const StyledGalleryModal = styled.div`
   height: 100%;
   overflow: auto;
   background-color: white;
+  margin: auto;
 `
 
 const StyledGalleryModalHeader = styled.div`
@@ -20,7 +21,9 @@ const StyledGalleryModalHeader = styled.div`
 `
 
 const StyledGalleryModalBody1 = styled.div`
-  display: block;
+  display: flex;
+  width: 100%;
+  height: 100%;
   padding-bottom: 24px;
   padding-top: 40px;
   margin: auto;
@@ -31,6 +34,13 @@ const StyledGalleryModalBody2 = styled.div`
   max-width: 1128px;
   height: 100%;
   width: 100%;
+  margin: auto;
+`
+
+const StyledGalleryModalBody2Grid = styled.div`
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
 `
 
 const StyledGalleryModalHeaderCloseFlex = styled.div`
