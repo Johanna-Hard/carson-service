@@ -635,3 +635,212 @@ export const CheckAvailabilityContainer = styled(CheckAvailability)`
   color: rgb(255, 255, 255) !important;
   width: 100% !important;
 `;
+
+/// DATES POPOUT ///
+export const DatesPopoutContainer = styled.div`
+  background: rgb(255, 255, 255) !important;
+  border-radius: 16px !important;
+  box-shadow: rgb(0 0 0 / 20%) 0px 6px 20px !important;
+  display: inline-block !important;
+  padding: 24px 32px 16px !important;
+  position: absolute !important;
+  top: -24px !important;
+  right: -32px !important;
+  width: 661px !important;
+  z-index: 1 !important;
+  min-height: 460px !important;
+`;
+
+export const SelectDatesContainer = styled.div`
+  -webkit-box-align: start !important;
+  -webkit-box-pack: justify !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  padding-bottom: 16px !important;
+`;
+
+export const CheckInCheckOutSelection = styled.div`
+  -webkit-box-flex: 0 !important;
+  order: 2 !important;
+  flex: 0 0 calc(((100vw - 256px) / 12) * 5 + 16px) !important;
+  margin-left: 24px !important;
+  min-width: 270px !important;
+  display: block !important;
+  flex-basis: calc(((100vw - 336px) / 12) * 4 + 0px) !important;
+`;
+
+export const CheckInCheckOutSelection2 = styled.div`
+  display: flex !important;
+  border-radius: 8px !important;
+  background-color: rgb(247, 247, 247) !important;
+  box-shadow: rgb(176 176 176) 0px 0px 0px 1px inset !important;
+`;
+
+export const CheckInSelection = styled.div`
+  position: relative !important;
+  cursor: text !important;
+  display: flex !important;
+  height: 56px !important;
+  width: 100% !important;
+  margin: 0px !important;
+  border: none transparent !important;
+  color: rgb(34, 34, 34) !important;
+  border-radius: 8px !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  font-weight: 400 !important;
+  flex: 1 1 0% !important;
+  outline: none !important;
+  box-shadow: rgb(34 34 34) 0px 0px 0px 2px inset !important;
+  background-color: rgb(255, 255, 255) !important;
+`;
+
+export const CheckInSelectionLabel = styled.label`
+  position: relative !important;
+  flex: 1 1 0% !important;
+  padding: 0px !important;
+`;
+
+export const CheckInSelectionText = styled.div`
+  position: absolute !important;
+  top: 12px !important;
+  left: 12px !important;
+  right: 12px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  pointer-events: none !important;
+  font-size: 10px !important;
+  line-height: 12px !important;
+  color: rgb(34, 34, 34) !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+`;
+
+export const CheckInDate = styled.div`
+  display: flex !important;
+  opacity: 1 !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  color: rgb(34, 34, 34) !important;
+`;
+
+export const CheckInDateInput = styled.input`
+  width: 100% !important;
+  border: none !important;
+  outline: none !important;
+  padding: 0px !important;
+  margin: 26px 12px 10px !important;
+  min-height: 1px !important;
+  color: inherit !important;
+  background-color: transparent !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  appearance: none !important;
+`;
+
+export const CheckOutSelection = styled.div`
+  position: relative !important;
+  display: flex !important;
+  height: 56px !important;
+  width: 100% !important;
+  margin: 0px !important;
+  border: none transparent !important;
+  border-radius: 8px !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+  font-weight: 400 !important;
+  flex: 1 1 0% !important;
+  opacity: 1 !important;
+  cursor: not-allowed !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  color: rgb(221, 221, 221) !important;
+  -webkit-text-fill-color: rgb(221, 221, 221) !important;
+`;
+
+export const SelectDatesHeader = styled.div`
+  order: 1 !important;
+`;
+
+export const SelectDatesHeader2 = styled.div``;
+
+export const SelectDatesHeaderText = styled.div`
+  color: rgb(34, 34, 34) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 22px !important;
+  line-height: 26px !important;
+`;
+
+export const SelectDatesHeaderH2 = styled.h2`
+  color: inherit !important;
+  font-size: 1em !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  margin: 0px !important;
+  padding: 0px !important;
+`;
+
+export const AddTravelDates = styled.div`
+  color: rgb(113, 113, 113) !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  padding-top: 8px !important;
+`;
+
+export const AddTravelDatesText = styled.div`
+  line-height: 18px !important;
+  max-height: 36px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  height: 36px !important;
+`;
+
+export const ActualCalendarContainer = styled.div`
+  display: flex !important;
+  height: 100% !important;
+  overflow: visible !important;
+  margin-right: 0px !important;
+  margin-left: -8px !important;
+`;
+
+export const ActualCalendarContainer2 = styled.div`
+  -webkit-box-direction: normal !important;
+  -webkit-box-orient: vertical !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  margin-right: auto !important;
+  margin-left: -24px !important;
+  margin-top: -12px !important;
+`;
+
+export const ActualCalendarContainer3 = styled.div``;
+
+export const ActualCalendarContainer4 = styled.div`
+  position: relative !important;
+  text-align: left !important;
+  background: rgb(255, 255, 255) !important;
+`;
+
+export const ActualCalendarContainer5 = styled.div``;
+
+export const ActualCalendarFooter = styled.div``;

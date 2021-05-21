@@ -69,6 +69,7 @@ export class Calendar extends React.Component {
     const guestsPanel = this.state.guestsPanelExpanded;
     let datesContainer;
     let guestsContainer;
+    let datesPopOut;
     let NumberofGuestsDisplay;
 
     if (this.state.totalGuestCount > 1 && this.state.Infants == 0) {
@@ -421,7 +422,40 @@ export class Calendar extends React.Component {
     }
 
     if (datesPanel) {
-      datesContainer = <div>i'm a div</div>;
+      datesContainer = (
+        <s.CheckInCheckOutContainer onClick={() => this.toggleDatesPanel()}>
+          <s.CheckInCheckOutContainer2>
+            <s.CheckInCheckOutContainer3 style={{ flex: "1 1 0%" }}>
+              <s.inset1
+                style={{
+                  background: "none",
+                  borderRadius: "8px 8px 0px 0px",
+                  inset: "0px 0px -1px",
+                }}
+              ></s.inset1>
+              <s.CheckInCheckOutFunctionality>
+                <s.CheckInContainer>
+                  <s.CheckInCheckOut>Check-in</s.CheckInCheckOut>
+                  <s.AddDate>Add date</s.AddDate>
+                </s.CheckInContainer>
+                <s.CheckOutContainer>
+                  <s.CheckInCheckOut>Checkout</s.CheckInCheckOut>
+                  <s.AddDate>Add date</s.AddDate>
+                </s.CheckOutContainer>
+              </s.CheckInCheckOutFunctionality>
+              <s.inset2
+                style={{
+                  inset: "0px 0px -1px",
+                  borderRadius: "8px 8px 0px 0px",
+                  borderColor: "rgb(176, 176, 176)",
+                  borderWidth: "1px",
+                  zIndex: "0",
+                }}
+              ></s.inset2>
+            </s.CheckInCheckOutContainer3>
+          </s.CheckInCheckOutContainer2>
+        </s.CheckInCheckOutContainer>
+      );
     } else {
       datesContainer = (
         <s.CheckInCheckOutContainer onClick={() => this.toggleDatesPanel()}>
@@ -459,6 +493,60 @@ export class Calendar extends React.Component {
       );
     }
 
+    if (datesPanel) {
+      datesPopOut = (
+        <s.DatesPopoutContainer>
+          <s.SelectDatesContainer>
+            <s.CheckInCheckOutSelection>
+              <s.CheckInCheckOutSelection2>
+                <s.CheckInSelection>
+                  <s.CheckInSelectionLabel>
+                    <s.CheckInSelectionText>Check-in</s.CheckInSelectionText>
+                    <div dir={"ltr"}>
+                      <s.CheckInDate>
+                        <s.CheckInDateInput
+                          placeholder={"Add date"}
+                          type={"text"}
+                          value={""}
+                        ></s.CheckInDateInput>
+                      </s.CheckInDate>
+                    </div>
+                  </s.CheckInSelectionLabel>
+                </s.CheckInSelection>
+                <s.CheckOutSelection></s.CheckOutSelection>
+              </s.CheckInCheckOutSelection2>
+            </s.CheckInCheckOutSelection>
+            <s.SelectDatesHeader>
+              <s.SelectDatesHeader2 style={{ paddingBottom: "0px" }}>
+                <s.SelectDatesHeaderText>
+                  <s.SelectDatesHeaderH2>Select Dates</s.SelectDatesHeaderH2>
+                </s.SelectDatesHeaderText>
+                <s.AddTravelDates>
+                  <s.AddTravelDatesText>
+                    Add your travel dates for exact pricing
+                  </s.AddTravelDatesText>
+                </s.AddTravelDates>
+              </s.SelectDatesHeader2>
+            </s.SelectDatesHeader>
+          </s.SelectDatesContainer>
+          <s.ActualCalendarContainer>
+            <s.ActualCalendarContainer2>
+              <s.ActualCalendarContainer3 style={{ minHeight: "361px" }}>
+                <s.ActualCalendarContainer4 style={{ width: "661px" }}>
+                  <s.ActualCalendarContainer5
+                    style={{ width: "660px" }}
+                  ></s.ActualCalendarContainer5>
+                </s.ActualCalendarContainer4>
+              </s.ActualCalendarContainer3>
+              <s.ActualCalendarFooter></s.ActualCalendarFooter>
+            </s.ActualCalendarContainer2>
+          </s.ActualCalendarContainer>
+        </s.DatesPopoutContainer>
+      );
+    } else {
+      datesPopOut = "";
+    }
+
     return (
       <div className={this.props.className}>
         <s.CalendarContainer2>
@@ -466,6 +554,7 @@ export class Calendar extends React.Component {
             {datesContainer}
             {guestsContainer}
           </s.CalendarContainer3>
+          <div>{datesPopOut}</div>
         </s.CalendarContainer2>
       </div>
     );
