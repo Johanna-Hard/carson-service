@@ -109,17 +109,17 @@ let count = 0;
 let seedPhotos = setInterval(function() {
   populatePhotos();
   count++;
-  if (count > 40) {
+  if (count > 30) {
     clearInterval(seedPhotos);
   }
 }, 10000);
 
-// hosts
-// let count = 0;
-// let seedHosts = setInterval(function() {
-//   populateHosts();
-//   count++;
-//   if (count > 4) {
-//     clearInterval(seedHosts);
-//   }
-// }, 10000);
+hosts
+let count = 0;
+let seedHosts = setInterval(function() {
+  populateHosts();
+  count++;
+  if (count > 4) {
+    clearInterval(seedHosts);
+  }
+}, 10000);

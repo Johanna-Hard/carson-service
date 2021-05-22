@@ -89,10 +89,10 @@ const StyledPhotoHomeHalfHeightBlockBottom = styled.div`
 const StyledShowAllPhotosContainerBlock = styled.div`
   display: block;
   height: 34px;
-  width: 155px;
+  width: px;
   position: absolute;
   z-index: 3;
-  bottom: 24px;
+  bottom: 65px;
   right: 170px;
   background-color: #181a1b;
   border-color: #776e62;
@@ -104,7 +104,8 @@ const StyledShowAllPhotosContainerFlex = styled.div`
   -webkit-box-align: center;
   align-items: center;
   justify-content: center;
-  height: 34px;
+  height: 100%;
+  width: 100%;
 `
 
 const StyledShowAllPhotos = styled.div`
@@ -113,7 +114,7 @@ const StyledShowAllPhotos = styled.div`
   margin: auto;
   text-align: center;
   font-size: 0.85em;
-  padding: 0.25em 1em;
+  padding: 0.52em 1em;
   border: 2px solid black;
   background-color: white;
 `

@@ -17,7 +17,7 @@ class Photos extends React.Component {
   }
 
   getPhotos(listing_id) {
-    return axios.get(`http://localhost:2004/photos/${listing_id}`)
+    return axios.get(`http://localhost:2000/photos/${listing_id}`)
       .then(photos => {
         return photos.data;
       })
@@ -38,11 +38,12 @@ class Photos extends React.Component {
 
   componentDidMount() {
     if (!this.state.listing_id) {
+      let listing_id = document.getElementById('item-page').getAttribute('roomId');
       let photos;
-      this.getPhotos(this.props.listing_id)
+      this.getPhotos(listing_id)
         .then(photos => {
           this.setState({
-            listing_id: this.props.listing_id,
+            listing_id,
             photos
           });
         })
@@ -69,7 +70,7 @@ class Photos extends React.Component {
   }
 }
 
-ReactDOM.render(<Photos listing_id={25}/>, document.getElementById('Photos'));
+ReactDOM.render(<Photos listing_id={20}/>, document.getElementById('Photos'));
 
 // 3 templates: 5, 3, 1 photo(s)
 // 5 photo widths: 50% 25% 25%

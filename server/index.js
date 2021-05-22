@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const Promise = require('bluebird');
 const db = require('../database/index.js');
 Promise.promisifyAll(db);
@@ -7,9 +8,13 @@ Promise.promisifyAll(db);
 const app = express();
 const port = 2004;
 
+app.use(cors());
+
 app.use(express.static(__dirname + '/../client/dist'));
-// app.use(bodyParser.json);
-// app.use(bodyParser.urlencoded({extended: true}));
+
+app.get('/photos.js', (req, res) => {
+  res.sendFile(__dirname + '/../client/dist/photos.js');
+});
 
 app.get('/', (req, res) => {
   console.log('GET /');
