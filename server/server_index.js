@@ -14,6 +14,10 @@ app.use(cors());
 app.use(express.static(path.join(__dirname + "/../public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get("*/rooms/:listingId", (req, res) => {
+  res.sendFile(path.join("../public/index.html"));
+});
+
 app.get("/listings/:listingId", (req, res) => {
   const listingId = req.params.listingId;
 

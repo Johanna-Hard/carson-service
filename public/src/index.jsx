@@ -10,7 +10,6 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      listingId: 5,
       numberOfGuests: null,
       pricePerNight: null,
       weekendPricePerNight: null,
@@ -26,7 +25,6 @@ class App extends React.Component {
 
   async componentDidMount() {
     let stateData = {
-      listingId: 5,
       numberOfGuests: null,
       pricePerNight: null,
       weekendPricePerNight: null,
@@ -38,11 +36,16 @@ class App extends React.Component {
       numberOfReviews: null,
       bookings: [],
     };
+    const splitPath = window.location.pathname.split("/");
+    const listingId = splitPath[splitPath.length - 1];
+    console.log("splitPath", splitPath);
+    console.log("listingId", listingId);
 
     await $.ajax({
       method: "GET",
-      url: `/listings/${this.state.listingId}`,
+      url: `http://localhost:2002/listings/${listingId}`,
       success: (data) => {
+        console.log("listings data", data);
         stateData["numberOfGuests"] = data.numberOfGuests;
         stateData["pricePerNight"] = data.pricePerNight;
         stateData["weekendPricePerNight"] = data.weekendPricePerNight;
@@ -58,8 +61,9 @@ class App extends React.Component {
 
     await $.ajax({
       method: "GET",
-      url: `/reviews/${this.state.listingId}`,
+      url: `http://localhost:2002/reviews/${listingId}`,
       success: (data) => {
+        console.log("reviews data", data);
         const randomNum = Math.floor(Math.random() * 100);
         stateData["rating"] = Number(data.rating).toFixed(2);
         stateData["numberOfReviews"] = randomNum;
@@ -71,8 +75,9 @@ class App extends React.Component {
 
     await $.ajax({
       method: "GET",
-      url: `/bookings/${this.state.listingId}`,
+      url: `http://localhost:2002/bookings/${listingId}`,
       success: (data) => {
+        console.log("bookings data", data);
         stateData["bookings"] = data.bookings;
       },
       error: (err) => {

@@ -63,8 +63,6 @@ export class Calendar extends React.Component {
   }
 
   render() {
-    console.log("component state", this.state);
-    console.log("props", this.props.state);
     const datesPanel = this.state.changeDatesExpanded;
     const guestsPanel = this.state.guestsPanelExpanded;
     let datesContainer;
