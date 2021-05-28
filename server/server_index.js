@@ -14,6 +14,10 @@ app.use(express.static(path.join(__dirname + "/../public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get("*/rooms/:listingId", (req, res) => {
+  res.sendFile(path.join(__dirname, "/../public/index.html"));
+});
+
 app.get("/listings/:listingId", (req, res) => {
   const listingId = req.params.listingId;
 
@@ -31,16 +35,6 @@ app.get("/listings/:listingId", (req, res) => {
     .catch((error) => {
       console.log("reviews error", error);
     });
-
-  // let options = {
-  //   url: `localhost:2001/listings/${listingId}/bookings`,
-  // }
-
-  // axios.get(options.url)
-  //   .then((listingData) => {
-  //     // do stuff with returned listingData?
-  //     res.send(listingData);
-  //   })
 });
 
 app.get("/reviews/:listingId", (req, res) => {
