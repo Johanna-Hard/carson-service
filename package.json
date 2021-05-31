@@ -9,10 +9,7 @@
     "start": "webpack serve",
     "build": "webpack",
     "watch": "webpack --watch",
-    "start-mysql": "mysql -u root < database/schema.sql",
-    "start-mongo": "brew services start mongodb-community@4.4",
-    "stop-mongo": "brew services stop mongodb-community@4.4",
-    "clear-mongo": "mongo airbnb --eval 'db.listing.drop()'"
+    "start-mysql": "mysql -u root < database/schema.sql"
   },
   "repository": {
     "type": "git",
