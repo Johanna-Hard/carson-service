@@ -3,15 +3,12 @@ const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
 const Sequelize = require("sequelize");
-console.log("line before DB requires");
 const { db, Listings, Reviews, Bookings } = require("../database/db_Index.js");
 const axios = require("axios");
 const cors = require("cors");
 
 const port = 2002;
 
-console.log("line before static");
-console.log("dirname", __dirname);
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
