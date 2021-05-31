@@ -1,15 +1,17 @@
 const express = require("express");
+const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
 const Sequelize = require("sequelize");
+console.log("line before DB requires");
 const { db, Listings, Reviews, Bookings } = require("../database/db_Index.js");
 const axios = require("axios");
 const cors = require("cors");
 
-const app = express();
 const port = 2002;
 
 app.use(cors());
+console.log("line before static");
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
