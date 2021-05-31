@@ -10,9 +10,10 @@ const cors = require("cors");
 
 const port = 2002;
 
-app.use(cors());
 console.log("line before static");
+console.log("dirname", __dirname);
 app.use(express.static(path.join(__dirname, "..", "public")));
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
