@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const db = new Sequelize("airbnb", "root", "", {
+const db = new Sequelize("airbnb", "root", "password", {
   host: "127.0.0.1",
   dialect: "mysql",
 });
