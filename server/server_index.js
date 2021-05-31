@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get("*/rooms/:listingId", (req, res) => {
-  res.sendFile(path.join(__dirname, "/../public/index.html"));
+  res.sendFile(path.join(__dirname, "..", "public"));
 });
 
 app.get("/listings/:listingId", (req, res) => {
