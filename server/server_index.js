@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get("*/rooms/:listingId", (req, res) => {
+  console.log("in app.get rooms/listingid");
   res.sendFile(path.join(__dirname, "..", "public"));
 });
 
