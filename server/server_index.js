@@ -9,6 +9,7 @@ const cors = require("cors");
 
 const port = 2002;
 
+console.log("dirname", __dirname);
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,7 +17,7 @@ app.use(bodyParser.json());
 
 app.get("*/rooms/:listingId", (req, res) => {
   console.log("in app.get rooms/listingid");
-  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+  res.sendFile(path.join(__dirname, "..", "public"));
 });
 
 app.get("/listings/:listingId", (req, res) => {
