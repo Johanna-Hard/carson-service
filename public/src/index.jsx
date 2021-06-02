@@ -41,7 +41,7 @@ class App extends React.Component {
 
     await $.ajax({
       method: "GET",
-      url: `http://13.58.29.30/:2002/listings/${listingId}`,
+      url: `http://13.58.29.30:2002/listings/${listingId}`,
       success: (data) => {
         stateData["numberOfGuests"] = data.numberOfGuests;
         stateData["pricePerNight"] = data.pricePerNight;
