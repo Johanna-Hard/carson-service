@@ -41,7 +41,7 @@ class App extends React.Component {
 
     await $.ajax({
       method: "GET",
-      url: `http://13.58.29.30:2002/listings/${listingId}`,
+      url: `http://3.139.87.173:2002/listings/${listingId}`,
       success: (data) => {
         stateData["numberOfGuests"] = data.numberOfGuests;
         stateData["pricePerNight"] = data.pricePerNight;
@@ -58,7 +58,7 @@ class App extends React.Component {
 
     await $.ajax({
       method: "GET",
-      url: `http://13.58.29.30:2002/reviews/${listingId}`,
+      url: `http://3.139.87.173:2002/reviews/${listingId}`,
       success: (data) => {
         const randomNum = Math.floor(Math.random() * 100);
         stateData["rating"] = Number(data.rating).toFixed(2);
@@ -71,7 +71,7 @@ class App extends React.Component {
 
     await $.ajax({
       method: "GET",
-      url: `http://13.58.29.30:2002/bookings/${listingId}`,
+      url: `http://3.139.87.173:2002/bookings/${listingId}`,
       success: (data) => {
         stateData["bookings"] = data.bookings;
       },
