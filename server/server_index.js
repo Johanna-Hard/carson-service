@@ -1,3 +1,4 @@
+const copmression = require("compression");
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -9,6 +10,7 @@ const cors = require("cors");
 const app = express();
 const port = 2002;
 
+app.use(compression());
 app.use(cors());
 app.use(express.static(path.join(__dirname + "/../public")));
 app.use(bodyParser.urlencoded({ extended: false }));

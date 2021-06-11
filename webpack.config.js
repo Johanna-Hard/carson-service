@@ -1,4 +1,5 @@
 const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: ["babel-polyfill", path.join(__dirname, "/public/src/index.jsx")],
@@ -16,6 +17,8 @@ module.exports = {
       },
     ],
   },
-  // devServer: { contentBase: path.join(__dirname, 'public') },
-  // mode: 'development'
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
 };
