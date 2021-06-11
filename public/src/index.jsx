@@ -23,7 +23,7 @@ class App extends React.Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     let stateData = {
       numberOfGuests: null,
       pricePerNight: null,
@@ -39,7 +39,7 @@ class App extends React.Component {
     const splitPath = window.location.pathname.split("/");
     const listingId = splitPath[splitPath.length - 1];
 
-    await $.ajax({
+    $.ajax({
       method: "GET",
       url: `http://3.139.87.173:2002/listings/${listingId}`,
       success: (data) => {
@@ -56,7 +56,7 @@ class App extends React.Component {
       },
     });
 
-    await $.ajax({
+    $.ajax({
       method: "GET",
       url: `http://3.139.87.173:2002/reviews/${listingId}`,
       success: (data) => {
@@ -69,7 +69,7 @@ class App extends React.Component {
       },
     });
 
-    await $.ajax({
+    $.ajax({
       method: "GET",
       url: `http://3.139.87.173:2002/bookings/${listingId}`,
       success: (data) => {
