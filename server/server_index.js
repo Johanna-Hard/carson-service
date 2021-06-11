@@ -17,8 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.setHeader("Cache-Control", "public, max-age=31536000");
-  res.setHeader("Pragma", "no-cache");
-  res.setHeader("Expires", "0");
   next();
 });
 
