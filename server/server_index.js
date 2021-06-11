@@ -15,6 +15,12 @@ app.use(cors());
 app.use(express.static(path.join(__dirname + "/../public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use((req, res, next) => {
+  res.setHeader("Cache-Control", "public, max-age=31536000");
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Expires", "0");
+  next();
+});
 
 app.get("*/rooms/:listingId", (req, res) => {
   res.sendFile(path.join(__dirname, "/../public/index.html"));
