@@ -1,4 +1,4 @@
-const copmression = require("compression");
+const compression = require("compression");
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
